@@ -129,7 +129,8 @@
     "install-pre-push-hook": "ts-node --project tsconfig.scripts.json ./scripts/install-pre-push-hook.ts",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "prepare": "husky"
+    "prepare": "husky",
+    "start": "cross-env NODE_OPTIONS='-r newrelic' next start -p 10400"
   },
   "eslintConfig": {
     "extends": [

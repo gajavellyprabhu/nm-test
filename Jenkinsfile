@@ -14,9 +14,9 @@ pipeline {
         DEBUG = 'sitecore-jss:*'
         FETCH_WITH='REST'
         LAYOUT_SERVICE_CONFIGURATION_NAME='sxa-jss'
-        // NEW_RELIC_LICENSE_KEY = credentials('new-relic-key')
-        // NEW_RELIC_APP_NAME = 'newrelic-murabba'
-        // NEW_RELIC_LOG_LEVEL = 'info'
+        NEW_RELIC_LICENSE_KEY = credentials('new-relic-key')
+        NEW_RELIC_APP_NAME = 'my-nextjs-app'
+        NEW_RELIC_LOG_LEVEL = 'info'
     }
     stages {
         stage('Build & Deploy') {
