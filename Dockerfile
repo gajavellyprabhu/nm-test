@@ -47,7 +47,7 @@ RUN npm run build
 FROM node:18.17.0-alpine AS runner
 
 # Install PM2 globally
-RUN npm install -g pm2
+# RUN npm install -g pm2
 
 WORKDIR /app
 
@@ -75,5 +75,5 @@ HEALTHCHECK --interval=30s --timeout=10s --start-period=40s --retries=3 \
 
 # Start with PM2
 #CMD ["pm2-runtime", "start", "pm2.config.js", "--env", "${NODE_ENV}"]
-#CMD ["node", "server.js"] working
-CMD ["npm", "run", "next:start"]
+CMD ["node", "server.js"]
+#CMD ["npm", "run", "next:start"]
