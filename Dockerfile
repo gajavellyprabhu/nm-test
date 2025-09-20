@@ -8,7 +8,8 @@ WORKDIR /app
 
 # Copy package files
 COPY package*.json ./
-RUN npm ci
+RUN npm install --production
+#RUN npm ci
 
 # Copy application files
 COPY . .
@@ -76,5 +77,6 @@ HEALTHCHECK --interval=30s --timeout=10s --start-period=40s --retries=3 \
 # Start with PM2
 #CMD ["pm2-runtime", "start", "pm2.config.js", "--env", "${NODE_ENV}"]
 #CMD ["node", "server.js"] working
-CMD ["sh", "-c", "NODE_OPTIONS='-r newrelic' node server.js"]
+#CMD ["sh", "-c", "NODE_OPTIONS='-r newrelic' node server.js"]
 #CMD ["npm", "run", "next:start"]
+CMD ["sh", "-c", "npm run start"]
