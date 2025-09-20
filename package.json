@@ -1,0 +1,139 @@
+{
+  "name": "murabba-site",
+  "description": "Application utilizing Sitecore JavaScript Services and Next.js",
+  "version": "21.5.1",
+  "private": true,
+  "config": {
+    "appName": "murabba-site",
+    "rootPlaceholders": [
+      "jss-main"
+    ],
+    "sitecoreDistPath": "/dist/murabba-site",
+    "sitecoreConfigPath": "/App_Config/Include/zzz",
+    "graphQLEndpointPath": "/api/items",
+    "language": "en",
+    "templates": [
+      "nextjs"
+    ]
+  },
+  "engines": {
+    "node": ">=12",
+    "npm": ">=6"
+  },
+  "author": {
+    "name": "Sitecore Corporation",
+    "url": "https://jss.sitecore.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sitecore/jss.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sitecore/jss/issues"
+  },
+  "license": "Apache-2.0",
+  "dependencies": {
+    "newrelic": "^12.0.0",
+    "@apollo/client": "^3.8.4",
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@hubspot/api-client": "^11.1.0",
+    "@mui/material": "^5.14.20",
+    "@next/third-parties": "^14.2.8",
+    "@sitecore-feaas/clientside": "^0.3.17",
+    "@sitecore-jss/sitecore-jss-forms": "^21.5.3",
+    "@sitecore-jss/sitecore-jss-nextjs": "~21.7.1",
+    "@sitecore-jss/sitecore-jss-react-forms": "^21.5.3",
+    "aos": "^2.3.4",
+    "autosuggest-highlight": "^3.3.4",
+    "framer-motion": "^12.23.12",
+    "graphql": "~15.8.0",
+    "graphql-tag": "^2.12.6",
+    "js-cookie": "^3.0.5",
+    "js-sha256": "^0.10.1",
+    "next": "14.1.0",
+    "next-localization": "^0.12.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-google-recaptcha-v3": "^1.10.1",
+    "react-helmet": "^6.1.0",
+    "react-inlinesvg": "^4.1.0",
+    "react-intersection-observer": "^9.6.0",
+    "react-number-format": "^5.3.1",
+    "react-paginate": "^8.2.0",
+    "react-player": "^2.14.0",
+    "react-stickynode": "^4.1.1",
+    "npm-run-all": "~4.1.5",
+    "sass": "^1.69.5",
+    "sharp": "^0.33.1",
+    "stylis": "^4.3.1",
+    "stylis-plugin-rtl": "^2.1.1",
+    "swiper": "^11.0.5",
+    "uuidv4": "^6.2.13"
+  },
+  "devDependencies": {
+    "@chromatic-com/storybook": "^4.1.1",
+    "@next/bundle-analyzer": "^14.0.4",
+    "@sitecore-jss/sitecore-jss-cli": "~21.5.1",
+    "@sitecore-jss/sitecore-jss-dev-tools": "~21.5.1",
+    "@storybook/addon-a11y": "^9.1.4",
+    "@storybook/addon-docs": "^9.1.4",
+    "@storybook/addon-onboarding": "^9.1.4",
+    "@storybook/addon-vitest": "^9.1.4",
+    "@storybook/nextjs": "^9.1.4",
+    "@types/js-cookie": "^3.0.6",
+    "@types/node": "^18.11.18",
+    "@types/react": "^18.0.12",
+    "@types/react-dom": "^18.0.5",
+    "@types/react-helmet": "^6.1.11",
+    "@types/react-stickynode": "^4.0.3",
+    "@types/stylis": "^4.2.5",
+    "@typescript-eslint/eslint-plugin": "^5.49.0",
+    "@typescript-eslint/parser": "^5.49.0",
+    "autoprefixer": "^10.4.21",
+    "chalk": "~4.1.2",
+    "chokidar": "~3.5.3",
+    "constant-case": "^3.0.4",
+    "cors": "^2.8.5",
+    "cross-env": "~7.0.3",
+    "dotenv": "^16.0.3",
+    "eslint": "^8.32.0",
+    "eslint-config-next": "^13.1.5",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.32.1",
+    "eslint-plugin-storybook": "^9.1.4",
+    "eslint-plugin-yaml": "^0.5.0",
+    "husky": "^9.1.7",
+    "prettier": "^2.8.3",
+    "storybook": "^9.1.4",
+    "ts-node": "^10.9.1",
+    "tsconfig-paths": "^4.1.2",
+    "typescript": "~4.9.4",
+    "yaml-loader": "^0.8.0"
+  },
+  "scripts": {
+    "jss": "jss",
+    "lint": "eslint ./src/**/*.tsx ./src/**/*.ts ./scripts/**/*.ts",
+    "bootstrap": "ts-node --project tsconfig.scripts.json scripts/bootstrap.ts",
+    "build": "npm-run-all --serial bootstrap next:build",
+    "graphql:update": "ts-node --project tsconfig.scripts.json ./scripts/fetch-graphql-introspection-data.ts",
+    "next:build": "next build",
+    "next:dev": "cross-env NODE_OPTIONS='--inspect' next dev -p 10400",
+    "next:start": "next start -p 10400",
+    "dev": "npm-run-all --serial bootstrap --parallel next:dev start:watch-components",
+    "scaffold": "ts-node --project tsconfig.scripts.json scripts/scaffold-component/index.ts",
+    "start:connected": "cross-env-shell NODE_EXTRA_CA_CERTS=C:\\certificates\\SIFRoot.cer npm-run-all --serial bootstrap --parallel next:dev start:watch-components",
+    "start:production": "npm-run-all --serial bootstrap next:build next:start",
+    "start:watch-components": "ts-node --project tsconfig.scripts.json scripts/generate-component-builder/index.ts --watch",
+    "install-pre-push-hook": "ts-node --project tsconfig.scripts.json ./scripts/install-pre-push-hook.ts",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
+    "prepare": "husky"
+  },
+  "eslintConfig": {
+    "extends": [
+      "plugin:storybook/recommended"
+    ]
+  }
+}

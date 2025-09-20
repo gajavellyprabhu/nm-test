@@ -1,0 +1,44 @@
+@use 'assets/abstracts' as *;
+
+.height-42 {
+  height: 42px;
+}
+.dropdown-box {
+  position: relative;
+  .dropdown-wrap {
+    max-width: calc(100% - 50px);
+    border-radius: 0px !important;
+    :global(fieldset) {
+      border: 1px solid $color-gold !important;
+    }
+    :global(.MuiInputBase-input) {
+      color: $color-gold;
+      text-transform: uppercase;
+    }
+  }
+  .select-arrow-wrap {
+    // pointer-events: none;
+    position: absolute;
+    top: 0;
+    @include right(0px);
+    width: 52px;
+    height: 42px;
+    cursor: pointer;
+    // background-color: $color-white;
+    @include padding-left(10px);
+    // @include border-left(1px solid $color-gold);
+    &.dropdown-open {
+      .select-arrow {
+        transform: rotate(180deg);
+      }
+    }
+  }
+  .select-arrow {
+    position: absolute;
+    top: 0;
+    @include right(0px);
+    width: 42px;
+    height: 42px;
+    background-color: $color-gold;
+  }
+}

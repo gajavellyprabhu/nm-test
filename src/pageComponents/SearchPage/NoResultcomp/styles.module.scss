@@ -1,0 +1,31 @@
+@use 'assets/abstracts' as *;
+
+.NoResultcomp {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 40px;
+
+  .no-result-image {
+    width: 100px;
+    height: 100px;
+  }
+  .no-result-content-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+    .no-result-title {
+      font: var($text-header3);
+      color: $color-black;
+      text-align: center;
+      word-break: break-word;
+    }
+    .no-result-text {
+      font: var($text-body2r);
+      text-align: center;
+      color: $text-dark;
+    }
+  }
+}

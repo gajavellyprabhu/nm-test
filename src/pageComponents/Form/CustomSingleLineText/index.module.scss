@@ -1,0 +1,63 @@
+@use 'assets/abstracts' as *;
+
+.CountryCodeSelector {
+  font: var($text-placeholder);
+
+  .phone_list {
+    :global(.MuiInputBase-root) {
+      padding: 0px !important;
+      max-width: unset;
+      :global(.MuiOutlinedInput-notchedOutline) {
+        // display: none !important;
+        border-width: 0px !important;
+      }
+      :global(.MuiInputAdornment-root) {
+        margin: 0px;
+      }
+      :global(.MuiInputBase-input) {
+        padding: 0px;
+        @include border-right(solid 1px $color-primary-slate-m);
+      }
+      :global(.MuiButtonBase-root) {
+        background-color: transparent !important;
+        // &:global(.Mui-focusVisible) {
+        //   background-color: transparent !important;
+        // }
+      }
+      .plus_icon {
+        @include margin-left(2px);
+      }
+      .drop-down-icon-auto {
+        position: relative;
+        svg {
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+        }
+      }
+    }
+  }
+}
+.custom-forms-popover {
+  // padding-left: 24px;
+  // padding-right: 24px;
+  // max-width: 1248px;
+  // width: 100% !important;
+  // transform: translateX(0px) !important;
+  // @media (min-width: 1248px) {
+  //   padding-left: 0px;
+  //   padding-right: 0px;
+  // }
+  :global(.MuiPaper-root) {
+    border: 1px solid $color-gold;
+    border-radius: 0px;
+    box-shadow: unset;
+  }
+  :global(.MuiAutocomplete-listbox) {
+    @include scrollbar(0px, $color-gold, white, 6px, 4px, 0px, 4px);
+  }
+}
+.input-label {
+  font: var($text-placeholder) !important;
+}

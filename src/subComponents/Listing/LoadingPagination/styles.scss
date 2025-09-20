@@ -1,0 +1,31 @@
+@use "src/assets/scss/componentBase" as *;
+
+.loading-pagination {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+
+  &.minimalVariation {
+    .loader {
+      max-width: 20px;
+      max-height: 20px;
+    }
+  }
+
+  .loader {
+    max-width: 2.5%;
+    max-height: 2.5%;
+  }
+
+  .loaderText {
+    // font-family: Vollkorn;
+    font-style: normal;
+    font-weight: 200;
+    font-size: 24px;
+    line-height: 24px;
+    color: #55142d;
+    margin-top: 14px;
+  }
+}

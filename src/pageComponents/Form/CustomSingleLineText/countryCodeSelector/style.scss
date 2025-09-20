@@ -1,0 +1,128 @@
+@import "../../../../assets/scss/base/components-dependencies";
+.CountryCodeSelector {
+  .drop-down-icon-auto {
+    position: relative;
+    svg {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+  .MuiAutocomplete-root {
+    width: 100px;
+    .MuiOutlinedInput-root {
+      @include padding-right(9px);
+    }
+  }
+  .MuiInputBase-root {
+    margin-top: -2px;
+  }
+  .MuiAutocomplete-input {
+    padding: 5.5px 4px 7.5px 5px;
+  }
+  .MuiAutocomplete-popper {
+    z-index: 90;
+    width: 300px !important;
+    top: 0px;
+    overflow: hidden;
+    @include left(0px !important);
+    transform: translate3d(0px, 32px, 0px) !important;
+    &[data-popper-placement="top"] {
+      transform: translate3d(0px, -32px, 0px) !important;
+    }
+    &:lang(#{$langAr}) {
+      transform: translate3d(0px, 32px, 0px) !important;
+      &[data-popper-placement="top"] {
+        transform: translate3d(0px, -32px, 0px) !important;
+      }
+    }
+
+    // @media only screen and (max-width: #{$maxwidthContainer }) {
+    //   padding-left: $space * 1px;
+    //   padding-right: $space * 1px;
+    // }
+    // @media #{$l_mobile} {
+    //   padding: 0 24px;
+    //   top: 0px !important;
+    //   filter: unset;
+    // }
+
+    .top-arrow {
+      position: absolute;
+      top: -5px;
+      width: 13.23px;
+      height: 13.37px;
+      @include left(38px);
+      background: var($--primary4Color-fix);
+      transform: rotate(45deg);
+    }
+    > .MuiPaper-root {
+      box-shadow: none;
+      overflow: visible;
+      filter: drop-shadow($box-shadow-1x);
+      @include border-left(1px solid var($--primary3Color-fix));
+      border-bottom: 1px solid var($--primary3Color-fix);
+      border-radius: 8px;
+
+      @media #{$l_mobile} {
+        @include border-right(1px solid var($--primary3Color-fix));
+        background: var($--primary4Color-fix);
+        box-shadow: none;
+      }
+      > .MuiAutocomplete-listbox {
+        // max-height: 100%;
+        @include scrollbar();
+        overflow: auto;
+        @media #{$l_mobile} {
+          background: transparent;
+        }
+        .single-tab {
+          padding: 16px 48px;
+          cursor: pointer;
+          @media #{$l_mobile} {
+            padding: 16px 24px;
+            border-bottom: 1px solid var($--black-border);
+          }
+          &:hover {
+            background: var($--gradient5);
+          }
+          .result-container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            text-decoration: none;
+            .search-result-title {
+              font: var($text-body2-normal);
+              color: var($--typography3-fix);
+              &.highlight {
+                color: var($--primary3Color-fix);
+              }
+            }
+            .search-result-text {
+              font: var($text-body6);
+              color: var($--typography2-fix);
+              margin-top: 4px;
+            }
+          }
+        }
+        .view-all-container {
+          border-top: 1px solid var($--white-half-opacity-color);
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          cursor: pointer;
+          margin: 16px 48px;
+          padding-top: 16px;
+          @media #{$l_mobile} {
+            margin: 16px 24px;
+          }
+          .results {
+            font: var($text-body6);
+            color: var($--typography3);
+          }
+        }
+      }
+    }
+  }
+}

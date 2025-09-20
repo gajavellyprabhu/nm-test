@@ -1,0 +1,79 @@
+@use 'assets/abstracts' as *;
+@import './Shared/styles.scss';
+
+.Form {
+  &.hide {
+    display: none;
+  }
+  :global(.d-none) {
+    display: none;
+  }
+  :global(.form-supportive-text) {
+    font: var($text-small2);
+    color: $color-primary-slate-m;
+    @include margin-left(16px);
+    margin-top: 4px;
+  }
+  :global(.MuiOutlinedInput-notchedOutline) {
+    font: var($text-placeholder);
+  }
+  :global(.MuiInputBase-input) {
+    color: #111;
+    &::placeholder {
+      opacity: 1;
+      color: #999;
+    }
+  }
+  // :global(.position_relative) {
+  //   position: relative;
+  // }
+  .recaptcha-disclaimer {
+    color: $text-dark;
+    font: var($text-small1);
+    margin-top: 2rem;
+    a {
+      color: $color-gold;
+    }
+  }
+  .form-container-form {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    .pull-right {
+      display: flex;
+      width: 100%;
+      justify-content: flex-end;
+      > * + * {
+        @include margin-left(1.5rem);
+      }
+    }
+    .pull-left {
+      display: flex;
+      width: 100%;
+      justify-content: flex-start;
+      > * + * {
+        @include margin-left(1.5rem);
+      }
+    }
+    .form-element-section {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      &:global(.d-flex) {
+        display: flex;
+      }
+      &:global(.d-none) {
+        display: none;
+      }
+      :global(.d-flex) {
+        display: flex;
+      }
+      :global(.d-none) {
+        display: none;
+      }
+    }
+  }
+  .recaptcha {
+    margin-top: 2rem;
+  }
+}

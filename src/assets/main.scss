@@ -1,0 +1,118 @@
+@use './global' as *;
+@use './abstracts' as *;
+// @forward 'pageComponents/FormsContainer/style.scss';
+// @forward '../pageComponents/Form/style.scss';
+// @forward '../pageComponents/Form/CustomCheckbox/index.scss';
+// @forward '../pageComponents/Form/CustomCheckboxList/index.scss';
+// @forward '../pageComponents/Form/CustomDatePicker/index.scss';
+// @forward '../pageComponents/Form/CustomDropdown/index.scss';
+// @forward '../pageComponents/Form/CustomFileUpload/index.scss';
+// @forward '../pageComponents/Form/CustomMultipleLineText/index.scss';
+// @forward '../pageComponents/Form/CustomRadioButtonList/index.scss';
+// @forward '../pageComponents/Form/CustomSingleLineText/index.scss';
+// @forward '../pageComponents/Form/CustomSingleLineText/countryCodeSelector/style.scss';
+// @forward '../pageComponents/Form/CustomSlider/index.scss';
+// @forward '../pageComponents/Form/CustomTextField/index.scss';
+// @forward '../pageComponents/Form/ErrorComponent/index.scss';
+// @forward '../pageComponents/Form/InputControl/index.scss';
+// @forward '../pageComponents/Form/Shared/styles.scss';
+
+$langAr: ':lang(ar)';
+// Reset styles
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box !important;
+}
+
+html {
+  background-color: rgb(17, 17, 17);
+  body {
+    background-color: $color-white;
+    &#{$langAr} {
+      direction: rtl;
+      text-align: right;
+    }
+    // @include scrollbar(0px, $primary2Color, $secondary2Color, 4px, 4px, 4px, 4px);
+    .global-content {
+      overscroll-behavior: contain;
+    }
+    @include scrollbar(0px, $color-black, $color-primary-slate-l, 6px, 4px, 0px, 4px);
+  }
+}
+
+@mixin spread-map($map: ()) {
+  @each $key, $value in $map {
+    #{$key}: $value;
+  }
+}
+
+.next_image {
+  position: relative !important;
+}
+
+:root {
+  @include spread-map($theme-component-space-desk);
+  @include spread-map($theme-map-font-desk);
+  &#{$langAr} {
+    @include spread-map($theme-map-font-desk-reversed);
+  }
+  @media #{$l_mobile} {
+    @include spread-map($theme-component-space-mobile);
+    @include spread-map($theme-map-font-mobile);
+    &#{$langAr} {
+      @include spread-map($theme-map-font-mobile-reversed);
+    }
+  }
+}
+.global-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  .global-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    //overflow: hidden;
+    .pattern_image_global {
+      position: absolute;
+      top: 0px;
+      @include right(0px);
+      display: block;
+      width: 100%;
+      max-width: 695px;
+      &#{$langAr} {
+        transform: scaleX(-1);
+      }
+      &.fliped-image {
+        @include left(0px);
+        transform: scaleX(-1);
+        @include right(unset);
+        &#{$langAr} {
+          transform: unset;
+        }
+      }
+      // &.homepage {
+      //   top: 100vh;
+      // }
+      @media #{$l_mobile} {
+        // max-width: 435px;
+        max-width: 293px;
+      }
+    }
+    .layout-main {
+      flex: 1 1 auto;
+    }
+  }
+}
+
+.hide {
+  display: block;
+}
+

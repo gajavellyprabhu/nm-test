@@ -1,0 +1,400 @@
+@use 'assets/abstracts' as *;
+
+.SquareGrid {
+  .accordion-parent {
+    position: relative;
+    padding-left: 0px;
+    padding-right: 0px;
+
+    > * {
+      background-color: transparent !important;
+    }
+
+    :global(.MuiAccordionSummary-content) {
+      margin: 0px 0;
+      z-index: 5;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 24px;
+    }
+
+    :global(.Mui-expanded) {
+      &:global(.MuiAccordion-rounded) {
+        padding: 0 !important;
+        padding-bottom: 16px !important;
+        border-bottom: 1px solid $color-secondary-beij-1;
+      }
+      .accordion-summary_image {
+        animation: shrinkAndDisappear 0.1s forwards;
+        overflow: hidden;
+      }
+      :global(.MuiAccordionSummary-content) {
+        margin: 8px 0;
+      }
+      .title {
+        max-width: 300px;
+      }
+    }
+
+    &:last-child {
+      :global(.Mui-expanded) {
+        :global(.MuiAccordionSummary-root) {
+          border-bottom: 1px solid $color-secondary-beij-1;
+        }
+      }
+    }
+  }
+
+  .image-text-wrap {
+    position: relative;
+
+    .image {
+      position: relative;
+      margin-bottom: 16px;
+    }
+  }
+
+  :global(.MuiAccordionSummary-root) {
+    position: relative;
+    padding-right: 0;
+    padding-left: 0;
+    border: 0px;
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      border-bottom: 1px solid $color-secondary-beij-1;
+    }
+  }
+
+  .accordionSummary {
+    @media #{$min_l_mobile} {
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+    }
+    .accordion-summary_image {
+      width: 100px;
+      height: 100px;
+      animation: growAndAppear 0.1s forwards;
+      img {
+        object-fit: cover;
+        width: 100px !important;
+      }
+    }
+  }
+  @keyframes shrinkAndDisappear {
+    0% {
+      opacity: 1;
+      width: 100px;
+      height: 100px;
+    }
+    90% {
+      width: 10px;
+      height: 10px;
+      opacity: 0;
+    }
+    100% {
+      opacity: 0;
+      display: none;
+      width: 0px;
+      height: 0px;
+    }
+  }
+  @keyframes growAndAppear {
+    0% {
+      display: none;
+      width: 0px; /* Starting width */
+      height: 0px; /* Starting width */
+      opacity: 0; /* Fully invisible */
+    }
+    10% {
+      display: block; /* Make element visible */
+      opacity: 0.1; /* Slightly visible */
+      height: 10px;
+      width: 10px; /* Start to grow */
+    }
+    100% {
+      width: 100px; /* Final width */
+      height: 100px; /* Final width */
+      opacity: 1; /* Fully visible */
+    }
+  }
+  :global(.MuiAccordionDetails-root) {
+    @media #{$min_l_mobile} {
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+    }
+
+    padding: 0 !important;
+  }
+
+  .accordion-custom {
+    box-shadow: unset !important;
+
+    .learn-more {
+      margin-bottom: 22px;
+      position: relative;
+    }
+
+    .title {
+      color: $color-black;
+      font: var($text-body1b);
+      font-size: 20px;
+      font-weight: 600;
+      max-width: 190px;
+    }
+
+    .description {
+      font: var($text-body2r);
+      color: $text-dark;
+    }
+  }
+
+  .image-close-open {
+    width: 24px;
+    height: 24px;
+  }
+
+  .top {
+    margin-bottom: 32px;
+
+    .title {
+      font: var($text-header2);
+      color: $secondary-color;
+      text-transform: uppercase;
+    }
+
+    .learn-more {
+      min-width: 300px;
+      align-items: center;
+      justify-content: flex-end;
+
+      @media #{$l_mobile} {
+        min-width: unset;
+        align-items: unset;
+        justify-content: unset;
+      }
+    }
+
+    @media #{$l_mobile} {
+      display: block;
+      margin-bottom: 32px;
+      @include padding-right(24px);
+
+      a {
+        margin-top: 16px;
+      }
+    }
+  }
+
+  .items {
+    position: relative;
+    display: flex;
+  
+    .item {
+      position: relative;
+      flex: 0 0 25%;
+      overflow: hidden;
+      min-height: 312px;
+      transition: all 0.3s ease;
+  
+      .link-ontop {
+        top: 0;
+        @include left(0px);
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+      }
+  
+      .box {
+        position: relative;
+        height: 100%;
+      }
+  
+      .image-box {
+        position: relative;
+        width: 100%;
+        height: 100%;
+      }
+  
+      .image {
+        width: 100%;
+        height: 100%;
+        position: relative;
+  
+        &:after {
+          content: '';
+          position: absolute;
+          top: 0;
+          clear: both;
+          display: block;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(0deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%),
+            linear-gradient(180deg, rgba(0, 0, 0, 0) 55.77%, rgba(0, 0, 0, 0.8) 88.3%);
+          opacity: 1;
+        }
+  
+        @include before-left(0);
+  
+        img {
+          width: 100%;
+          height: 100% !important;
+          display: block;
+          position: relative;
+          object-fit: cover;
+        }
+      }
+  
+      /* Hover Image (background fade effect) */
+      .hover-image {
+        position: absolute;
+        top: 0;
+        @include left(0px);
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        transition: opacity 0.3s ease;  // Smooth transition for hover effect
+  
+        &:after {
+          content: '';
+          position: absolute;
+          top: 0;
+          clear: both;
+          display: block;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(0deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.8) 100%);
+        }
+      }
+  
+      /* Title Styling */
+      .box-title {
+        position: absolute;
+        bottom: 0;
+        padding: 24px;
+        @include left(0px);
+        width: 100%;
+        color: $color-white;
+        font: var($text-body1b);
+        opacity: 1;
+        z-index: 1;  // Ensure it's on top of the image
+        transition: opacity 0.3s ease;  // Fade out the title on hover
+      }
+  
+      /* Description Styling */
+      .flex-description {
+        position: relative;
+        color: $color-secondary-beij-3;
+        display: flex;
+        padding: 24px;
+        align-items: center;
+        gap: 21px;
+        flex: 1 0 0;
+        align-self: stretch;
+        z-index: 1;
+        height: 100%;
+        opacity: 0;  // Initially hidden
+        transform: translateY(30px);  // Start position for animation
+        transition: opacity 0.3s ease, transform 0.3s ease;  // Fade-in and move up
+      }
+  
+      .item-description {
+        font: var($text-menuButtonsr);
+        display: block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 11;
+        -webkit-box-orient: vertical;
+        color: $color-secondary-beij-3;
+      }
+  
+      &:hover {
+        .hover-image {
+          opacity: 1;
+        }
+  
+        .box-title {
+          opacity: 0;  // Title disappears on hover
+        }
+  
+        .flex-description {
+          opacity: 1;  // Description fades in
+          transform: translateY(0);  // Moves up to the normal position
+        }
+      }
+  
+      video {
+        object-fit: cover;
+      }
+    }
+  
+    &.two-cards {
+      .item {
+        flex: 0 0 50%;
+      }
+    }
+  
+    &.six-cards {
+      .item {
+        flex: 0 0 33%;
+      }
+    }
+  }
+  
+  
+
+  @media #{$max_width_1024} {
+    .items {
+      display: block;
+
+      .item {
+        height: auto;
+        flex: none;
+
+        .box-title {
+          position: relative;
+          top: unset;
+          @include left(unset);
+        }
+
+        &:last-child {
+          display: none;
+        }
+      }
+    }
+  }
+  &.SquareGridVideo360{
+    .items{
+      .item{
+        min-height:411px;
+      }
+    }
+    .flex-description{
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+    .image-play-mobile {
+      width: 40px;
+      height: 40px;
+    }
+    .icon-360{
+      width: 80px;
+      height: 80px;
+      margin-bottom: 16px;
+    }
+  }
+
+  .disclaimer{
+    color: $text-dark;
+    font: var($text-small1);
+    line-height: 20px;
+    margin-top: 32px;
+  }
+}

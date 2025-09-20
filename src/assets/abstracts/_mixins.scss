@@ -1,0 +1,286 @@
+@use 'sass:map';
+@use 'sass:math';
+@use './variables.scss' as *;
+@use './mixinsRTL.scss' as *;
+
+@mixin scrollbar(
+  //
+  $margin: 0px,
+  $color: $primary2Color,
+  $background: $secondary1Color,
+  $scrollbarWidth: 3px,
+  $thumbWidth: 3px,
+  $radius: 3px,
+  $height: null
+) {
+  &::-webkit-scrollbar {
+    width: $scrollbarWidth;
+    @if $height {
+      height: $height;
+    }
+  }
+
+  &::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgb(0 0 0 / 10%);
+    background: $background;
+    border-radius: $radius;
+    margin: $margin;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    width: $thumbWidth;
+    background: $color;
+    border-radius: $radius;
+
+    border: 1px solid transparent;
+    // border-radius: 9px;
+    background-clip: content-box;
+
+    // &:hover {
+    //   background: var($color);
+    // }
+  }
+  @-moz-document url-prefix() {
+    /* width and height of the scrollbar */
+    scrollbar-width: thin;
+    // scrollbar-track-color: var($background);
+    // scrollbar-face-color:var($color);
+    // @if $height {
+    //   scrollbar-height: thin;
+    // }
+    /* background color of the scrollbar */
+    scrollbar-color: $color $background;
+    /* radius of the scrollbar thumb */
+    // scrollbar-thumb-radius: $radius;
+
+    /* radius of the scrollbar track */
+    // scrollbar-track-radius: $radius;
+    /* margin of the scrollbar */
+    // scrollbar-margin: $margin;
+
+    /* box-shadow of the scrollbar thumb */
+    //  scrollbar-thumb-shadow: inset 0 0 6px rgb(0 0 0 / 10%);
+
+    /* box-shadow of the scrollbar track */
+    // scrollbar-track-shadow: inset 0 0 6px rgb(0 0 0 / 10%);
+    -webkit-box-shadow: inset 0 0 6px rgb(0 0 0 / 10%);
+  }
+}
+
+@mixin expand-image() {
+  //
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+}
+
+// line-breaking
+@mixin lineDotBreak($lineCount: 1) {
+  //
+  // text-overflow: ellipsis;
+  // overflow: hidden;
+  // display: -webkit-box;
+  // -webkit-box-orient: vertical;
+  // -webkit-line-clamp: $lineCount;
+
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $lineCount; // Safari and Chrome
+  -moz-box-orient: vertical;
+  -moz-box-lines: $lineCount; // Firefox
+  -ms-text-overflow: ellipsis; // IE and Edge
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+@mixin flex($direction: row, $alignItems: flex-start) {
+  //
+  display: flex;
+  flex-direction: $direction;
+  align-items: $alignItems;
+  width: 100%;
+}
+
+@mixin flipImageInArabic() {
+  //
+  &#{$langAr} {
+    svg,
+    img {
+      transform: scaleX(-1);
+    }
+  }
+}
+
+@mixin createTopBottomMargins($increment, $size) {
+  //
+  $class: 0;
+  $i: 0;
+  @while $i < $size {
+    .margin-top-#{$class} {
+      margin-top: #{$class}px;
+    }
+    .margin-bottom-#{$class} {
+      margin-bottom: #{$class}px;
+    }
+    $class: $class + $increment;
+    $i: $i + 1;
+  }
+}
+/**
+  Output will be like this if increment is 8 and size is 11:
+  .margin-top-0 {margin-top: 0px;}
+  .margin-bottom-0 {margin-top: 0px;}
+
+  .margin-top-8 {margin-top: 8px;}
+  .margin-bottom-8 {margin-top: 8px;}
+
+  ....
+
+  .margin-top-80 {margin-top: 80px;}
+  .margin-bottom-80 {margin-top: 80px;}
+
+*/
+
+@mixin gradientBorder(
+  //
+  $gradientColor,
+  $borderTop,
+  $borderRight,
+  $borderBottom,
+  $borderLeft,
+  $backgroundColor: var($primary4Color)
+) {
+  background: linear-gradient($backgroundColor, $backgroundColor) padding-box,
+    $gradientColor border-box;
+  border-top: $borderTop solid transparent;
+  border-bottom: $borderBottom solid transparent;
+  @include border-right($borderRight solid transparent);
+  @include border-left($borderLeft solid transparent);
+}
+
+@mixin gradientBorderWithGradientBackground(
+  $gradientColor,
+  $borderTop,
+  $borderRight,
+  $borderBottom,
+  $borderLeft,
+  $gradientBackgroundColor
+) {
+  background: $gradientBackgroundColor padding-box, $gradientColor border-box;
+  // -webkit-mask: linear-gradient($backgroundColor, $backgroundColor) padding-box;
+  // -webkit-mask-composite: xor;
+  // mask-composite: exclude;
+  // background: $gradientColor padding-box;
+  //$gradientColor
+  // border-image: $gradientColor no-repeat;
+  border-top: $borderTop solid transparent;
+  border-bottom: $borderBottom solid transparent;
+  @include border-right($borderRight solid transparent);
+  @include border-left($borderLeft solid transparent);
+  // ::after{
+  //   position:absolute
+  // }
+}
+
+@mixin rowSystem($elementsPerRow: 2, $gap: 24px, $shouldStretchMaxWidth: 1) {
+  $elementsMinusOne: $elementsPerRow - 1;
+  $sumOfMargins: calc(($elementsMinusOne * $gap) / $elementsPerRow);
+  $halfGap: calc($gap / 2);
+  flex: 1 1 calc(math.div(100%, $elementsPerRow) - $sumOfMargins);
+
+  @if ($shouldStretchMaxWidth == 1) {
+    max-width: calc(math.div(100%, 2) - $gap / 2);
+  } @else if($shouldStretchMaxWidth == 2) {
+    max-width: calc(100% - $gap / 2);
+  } @else {
+    max-width: calc(math.div(100%, $elementsPerRow) - $sumOfMargins);
+  }
+
+  @for $i from 1 through $elementsPerRow {
+    @if ($i == $elementsPerRow) {
+      &:nth-child(#{$elementsPerRow}n) {
+        @include margin-right(0px);
+        @include margin-left($halfGap);
+      }
+    } @else if ($i == $elementsMinusOne) {
+      &:nth-child(#{$elementsPerRow}n - #{$elementsMinusOne}) {
+        @include margin-right($halfGap);
+        @include margin-left(0px);
+      }
+    } @else {
+      &:nth-child(#{$elementsPerRow}n - #{$i}) {
+        @include margin-left($halfGap);
+        @include margin-right($halfGap);
+      }
+    }
+  }
+  &:last-child {
+    @include margin-right(0px);
+  }
+}
+@mixin oneCardPerRow() {
+  flex: unset;
+  width: 100%;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  max-width: 100%;
+}
+
+// @Manal start
+@mixin gradientText($color) {
+  width: fit-content;
+  background: $color;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  // text-fill-color: transparent;
+}
+
+@mixin revertGradientText {
+  width: fit-content;
+  background: unset;
+  -webkit-background-clip: unset;
+  -webkit-text-fill-color: unset;
+  background-clip: unset;
+  // text-fill-color: unset;
+}
+// @Manal end
+@mixin backgroundEffect($background, $blur, $boxShadow) {
+  background: $background;
+  @if $blur != '0' {
+    backdrop-filter: blur($blur);
+  }
+  @if $boxShadow != '0' {
+    box-shadow: $boxShadow;
+  }
+}
+$box-shadow-1x: 18px 18px 30px rgba(1, 1, 1, 0.1);
+$box-shadow-2x: 20px 60px 44px rgba(0, 0, 0, 0.1);
+$box-shadow-3x: 10px 10px 50px rgba(0, 0, 0, 0.1);
+$box-shadow-4x: 20px 80px 44px rgba(0, 0, 0, 0.1);
+$box-shadow-15x: 16px 17px 30px 0px rgba(0, 0, 0, 0.15);
+$backdrop-filter: blur(15px);
+// $line-description-color: #e7ebfc;
+// $error-color: #ff0000;
+
+$--radioButtonBg: rgba(197, 232, 108, 0.2);
+
+@mixin box-shadow-1x() {
+  box-shadow: $box-shadow-1x;
+}
+@mixin box-shadow-2x() {
+  box-shadow: $box-shadow-2x;
+}
+@mixin box-shadow-3x() {
+  box-shadow: $box-shadow-3x;
+  backdrop-filter: $backdrop-filter;
+}
+@mixin box-shadow($box-shadow, $backdrop-filter: '') {
+  box-shadow: $box-shadow;
+  @if $backdrop-filter {
+    backdrop-filter: $backdrop-filter;
+  }
+}

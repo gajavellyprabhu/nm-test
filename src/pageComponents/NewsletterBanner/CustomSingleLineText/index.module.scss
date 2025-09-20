@@ -1,0 +1,4 @@
+@use 'assets/abstracts' as *;
+.input-label {
+  font: var($text-placeholder) !important;
+}

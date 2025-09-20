@@ -1,0 +1,128 @@
+@use 'assets/abstracts' as *;
+
+.MediumSizeBanner {
+  position: relative;
+  min-height: 446px;
+  // margin-bottom: var($component-space);
+  overflow: hidden;
+
+  :global(.component-content) {
+    height: 100%;
+    min-height: 446px;
+  }
+
+  :global(.component-wrapper) {
+    height: 100%;
+    min-height: 446px;
+  }
+
+  img {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  .data_box {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    height: 100%;
+    min-height: 446px;
+    z-index: 1;
+  }
+
+  .data {
+    position: relative;
+    padding-bottom: 80px;
+
+    @media #{$l_mobile} {
+      padding-bottom: 48px;
+    }
+  }
+
+  .title {
+    position: relative;
+    font: var($text-header2);
+    color: $color-white;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+
+    @media #{$l_mobile} {
+      margin-bottom: 8px;
+    }
+  }
+
+  .description {
+    position: relative;
+    font: var($text-header4);
+    color: $color-white;
+    // text-transform: capitalize;
+    // text-transform: lowercase;
+    // &:first-letter {
+    //   text-transform: uppercase;
+    // }
+  }
+
+  .banner-slide {
+    position: absolute !important;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    min-height: 446px;
+    opacity: 0;
+    transform: scale(1);
+    transition: opacity 1s ease-in-out, transform 10s ease-in-out;
+    @include left(0px);
+
+    &:after {
+      content: '';
+      width: 100%;
+      position: absolute;
+      top: 0;
+      height: 100%;
+      @include left(0px);
+      display: block;
+      background: linear-gradient(359.3deg, rgba(17, 17, 17, 0.7) -1.14%, rgba(0, 0, 0, 0) 99%);
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      min-height: 446px;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+
+  .banner-slide.active {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+
+  .zoom-image:first-child {
+    animation: fadeIn 1s ease-in-out, zoomIn 12s infinite ease-in-out;
+  }
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes zoomIn {
+    0% {
+      transform: scale(1);
+    }
+
+    100% {
+      transform: scale(1.05);
+    }
+  }
+
+}

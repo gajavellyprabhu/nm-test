@@ -1,0 +1,66 @@
+@use 'assets/abstracts' as *;
+
+.sequenceBanner {
+  position: relative;
+  //  height: 300vh; // scroll area
+  width: 100%;
+  background-color: black;
+}
+
+.scrollArea {
+  height: 300vh; // scroll length
+  position: relative; // sticky looks up only to this
+}
+
+.stickyContainer {
+  position: sticky;
+  top: 0;
+  height: 100vh; // stays fixed during parent scroll
+  //  width: 100%;
+  overflow: hidden;
+  //  display: flex;
+  // align-items: center;
+  //justify-content: center;
+  @media #{$l_mobile} {
+    // height: 100vh; // Fallback for older browsers
+    // height: 100dvh;
+  }
+}
+
+.video {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.textOverlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  color: $color-white;
+  padding: 1rem;
+  background: linear-gradient(180deg, rgba(17, 17, 17, 0) 51.44%, #111 89.53%);
+}
+
+.textContainer {
+  margin-bottom: 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.title {
+  font: var($text-header1);
+  text-transform: uppercase;
+}
+
+.description {
+  font: var($text-header4);
+}
+

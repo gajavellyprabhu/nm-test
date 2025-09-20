@@ -1,0 +1,69 @@
+// SCSS variables for theme spacing (adjust values as needed)
+@use 'assets/abstracts' as *;
+$spacing-2: 16px; // theme.spacing(2)
+$spacing-7: 56px; // theme.spacing(7)
+
+.partners-container {
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: $spacing-7;
+  width: 100%;
+  background-color: $secondary-color;
+  padding: 64px;
+}
+
+.partner-logos {
+  display: flex;
+  justify-content: center;
+  gap: $spacing-2;
+  flex-shrink: 0;
+  flex-wrap: nowrap;
+  will-change: transform;
+  @media (max-width: 600px) {
+    justify-content: flex-start;
+  }
+}
+
+.logo-frame {
+  width: 209px;
+  height: 88px;
+  // background-color: $color-black-opaque;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 14px 14px 0 rgba(0, 0, 0, 0.15);
+  flex-shrink: 0;
+}
+
+@keyframes scrollTrack {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-40%);
+  }
+}
+
+.animated-track {
+  display: inline-flex;
+  animation-name: scrollTrack;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-duration: var(--scroll-speed);
+}
+
+.static-track {
+  display: inline-flex;
+}
+
+.title {
+  font: var($text-header2);
+  color: $color-white;
+  text-align: center;
+  text-transform: uppercase;
+}
+

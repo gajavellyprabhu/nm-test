@@ -1,0 +1,38 @@
+query get_search_result_facets(
+  $rootItem: String
+  $language: String
+  $keyword: String
+  $filterSource: [ItemSearchFieldQuery] = null
+  $limit: Int = null
+  $offset: String
+  $facetOn: [String!] = null
+  $sortOrder: String
+  $sortDesc: Boolean = false
+) {
+  search(
+    rootItem: $rootItem
+    language: $language
+    fieldsEqual: $filterSource
+    keyword: $keyword
+    first: $limit
+    after: $offset
+    facetOn: $facetOn
+    sortDesc: $sortDesc
+    sortBy: $sortOrder
+  ) {
+    facets {
+      name
+      values {
+        item {
+          # ... on Tag_0383da6c2a044800a1a4e566d0af555d {
+          ... on Tag {
+            title {
+              value
+            }
+          }
+        }
+        count
+      }
+    }
+  }
+}

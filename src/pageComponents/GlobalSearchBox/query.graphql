@@ -1,0 +1,46 @@
+query get_search_suggestions(
+  $rootItem: String
+  $language: String
+  $keyword: String
+  $filterSource: [ItemSearchFieldQuery] = null
+  $limit: Int = null
+  $sortOrder: String
+  $sortDesc: Boolean = false
+  $fieldsBoosting: [ItemSearchFieldQuery] = null
+) {
+  search(
+    rootItem: $rootItem
+    language: $language
+    fieldsEqual: $filterSource
+    keyword: $keyword
+    first: $limit
+    sortDesc: $sortDesc
+    sortBy: $sortOrder
+    fieldsBoosting: $fieldsBoosting
+  ) {
+    results {
+      totalCount
+      items {
+        item {
+          url
+          ... on _Title_b483475358a6467f87d717c36d0a9703 {
+            title {
+              value
+            }
+          }
+          ... on _Taggable {
+            tags {
+              targetItems {
+                ... on Tag {
+                  title {
+                    value
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,198 @@
+// Primary colors:
+$--Primary-color-main: --Primary-color-main;
+$--Primary-color-alternative: --Primary-color-alternative;
+
+// Secondary colors:
+$--Secondary-1: --Secondary-1;
+$--Secondary-2: --Secondary-2;
+$--Secondary-3: --Secondary-3;
+$--Secondary-4: --Secondary-4;
+
+// Gradients:
+$--Gradient-1: --Gradient-1;
+$--Gradient-1-Flipped: --Gradient-1-Flipped;
+$--Gradient-1-Flipped-Arabic: --Gradient-1-Flipped-Arabic;
+$--Gradient-1-Corner-Flipped: --Gradient-1-Corner-Flipped;
+$--Gradient-2: --Gradient-2;
+$--Gradient-2-Flipped: --Gradient-2-Flipped;
+$--Gradient-3: --Gradient-3;
+$--Gradient-3-Flipped: --Gradient-3-Flipped;
+$--Gradient-4: --Gradient-4;
+$--Gradient-4-Flipped: --Gradient-4-Flipped;
+$--Gradient-Stroke: --Gradient-Stroke;
+$--Gradient-Stroke-Flipped: --Gradient-Stroke-Flipped;
+$--Image-Overlay: --Image-Overlay;
+$--Grey-Background: --Grey-Background;
+$--Map-Gradient-Flipped: --Map-Gradient-Flipped;
+$--Map-Gradient-Flipped-Arabic: --Map-Gradient-Flipped-Arabic;
+// Typography color:
+$--Typography-color-main: --Typography-color-main;
+$--Typography-color-alternative: --Typography-color-alternative;
+$--Typography-color-main-faded: --Typography-color-main-faded;
+// Error Color
+$--Error: --Error;
+$--Opaque-Error: --Opaque-Error;
+$--ScrollBar-Color: --ScrollBar-Color;
+$--Filter-Hover: --Filter-Hover;
+// Overlays
+$--Banner-Overlay-1: --Banner-Overlay-1;
+$--Overlay-1: --Overlay-1;
+$--Overlay-2: --Overlay-2;
+$--Overlay-3: --Overlay-3;
+$--Overlay-Colored: --Overlay-Colored;
+$--Overlay-Colored-Flipped: --Overlay-Colored-Flipped;
+$--Overlay-Colored-2: --Overlay-Colored-2;
+$--Overlay-Colored-2-Flipped: --Overlay-Colored-2-Flipped;
+$--Banner-Overlay-2: --Banner-Overlay-2;
+$--White-Image: --White-Image;
+$--Black-Image: --Black-Image;
+$--Active-Arrow: --Active-Arrow;
+// Basic Colors
+$--Primary-white: --Primary-white;
+$--Opaque-white-pt5: --Opaque-white-pt5;
+$--Opaque-white-pt2: --Opaque-white-pt2;
+$--Opaque-Typography-color-main-pt5: --Opaque-Typography-color-main-pt5;
+$--Opaque-Typography-color-main-pt2: --Opaque-Typography-color-main-pt2;
+$--Border-Transparent: --Border-Transparent;
+$--Overlay-Colored-2: --Overlay-Colored-2;
+$--Reset-Hover: --Reset-Hover;
+// Additional Colors
+$--Additional-1: --Additional-1;
+$--Additional-2: --Additional-2;
+$--Inverted-Gradient: --Inverted-Gradient;
+// Fonts
+$--theme-font: --theme-font;
+$--theme-font-alternative: --theme-font-alternative;
+
+// ------------------------------------------------------------------------------------------------------------
+// IDEX
+$theme-map-idex: (
+  // Primary colors:
+  $--Primary-color-main: #1c693c,
+  $--Primary-color-alternative: #18306b,
+
+  // Secondary colors:
+  $--Secondary-1: #04c051,
+  $--Secondary-2: #02f967,
+  $--Secondary-3: #0d2257,
+  $--Secondary-4: rgba(4, 147, 192, 0.1),
+  // Gradients:
+  $--Gradient-1: linear-gradient(98.5deg, #416c32 26.73%, #182f6a 74.7%),
+  $--Gradient-1-Flipped:
+    linear-gradient(297.5deg, #416c32 31.13%, #182f6a 87.64%),
+  $--Gradient-1-Flipped-Arabic:
+    linear-gradient(260deg, #416c32 26.73%, #182f6a 74.7%),
+  $--Gradient-1-Corner-Flipped:
+    linear-gradient(60.5deg, #416c32 26.73%, #182f6a 74.7%),
+  $--Gradient-2: linear-gradient(249.95deg, #2678a9 17.12%, #0d2156 61.11%),
+  $--Gradient-2-Flipped:
+    linear-gradient(118.95deg, #2678a9 17.12%, #0d2156 61.11%),
+  $--Gradient-3: linear-gradient(63.34deg, #041a59 30.65%, #0d60ac 72.1%),
+  $--Gradient-3-Flipped:
+    linear-gradient(280.34deg, #041a59 30.65%, #0d60ac 72.1%),
+  $--Gradient-4: linear-gradient(120.53deg, #21531d 31.48%, #1a224c 90.28%),
+  $--Gradient-4-Flipped:
+    linear-gradient(250.53deg, #21531d 31.48%, #1a224c 90.28%),
+  $--Gradient-Stroke: linear-gradient(168.97deg, #04c051 0.99%, #18306b 91.17%),
+  $--Gradient-Stroke-Flipped:
+    linear-gradient(286.09deg, #04c051 45.58%, #18306b 59.13%),
+  $--Map-Gradient-Flipped:
+    linear-gradient(240.5deg, #416c32 31.13%, #182f6a 87.64%),
+  $--Map-Gradient-Flipped-Arabic:
+    linear-gradient(134.5deg, #416c32 31.13%, #182f6a 87.64%),
+  $--Image-Overlay:
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+  $--Border-Transparent: rgba(24, 48, 107, 0.15),
+  $--Grey-Background: rgba(24, 48, 107, 0.05),
+  $--ScrollBar-Color: rgba(0, 0, 0, 0.2),
+  $--Filter-Hover: rgba(24, 48, 107, 0.1),
+  // Typography color:
+  $--Typography-color-main: #333333,
+  $--Typography-color-alternative: #8ca0ae,
+  $--Typography-color-main-faded: rgba(51, 51, 51, 0.1),
+  // Error Color
+  $--Error: #ff8c5b,
+  $--Opaque-Error:
+    rgba(
+      $color: #ff8c5b,
+      $alpha: 0.5,
+    ),
+  // Overlays
+  $--Overlay-1: rgba(0, 0, 0, 0.4),
+  $--Overlay-2:
+    radial-gradient(
+      59.1% 50% at 50% 50%,
+      rgba(0, 0, 0, 0) 28.65%,
+      rgba(0, 0, 0, 0.15) 64.58%,
+      rgba(0, 0, 0, 0.4) 100%
+    ),
+  $--Overlay-3:
+    linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.7) 70.91%),
+  $--Overlay-Colored:
+    linear-gradient(
+      273.55deg,
+      rgba(28, 105, 60, 0.85) 14.48%,
+      rgba(24, 47, 106, 0.85) 41.41%,
+      rgba(0, 0, 0, 0) 99.26%
+    ),
+  $--Overlay-Colored-Flipped:
+    linear-gradient(
+      86.45deg,
+      rgba(28, 105, 60, 0.85) 14.48%,
+      rgba(24, 47, 106, 0.85) 41.41%,
+      rgba(0, 0, 0, 0) 99.26%
+    ),
+  $--Overlay-Colored-2:
+    linear-gradient(
+      339.06deg,
+      rgba(28, 105, 60, 0.85) 25.91%,
+      rgba(24, 47, 106, 0.85) 45.33%,
+      rgba(0, 0, 0, 0.4) 87.04%
+    ),
+  $--Overlay-Colored-2-Flipped:
+    linear-gradient(
+      20.94deg,
+      rgba(28, 105, 60, 0.85) 25.91%,
+      rgba(24, 47, 106, 0.85) 45.33%,
+      rgba(0, 0, 0, 0.4) 87.04%
+    ),
+  $--White-Image: brightness(0) invert(1),
+  $--Black-Image: brightness(0),
+  $--Reset-Hover: invert(55%) sepia(19%) saturate(4996%) hue-rotate(106deg)
+    brightness(95%) contrast(97%),
+  $--Active-Arrow: brightness(0) saturate(100%) invert(50%) sepia(64%)
+    saturate(1686%) hue-rotate(107deg) brightness(96%) contrast(97%),
+  // Basic Colors
+  $--Primary-white: #ffffff,
+  $--Opaque-white-pt5:
+    rgba(
+      $color: #ffffff,
+      $alpha: 0.5,
+    ),
+  $--Opaque-white-pt2:
+    rgba(
+      $color: #ffffff,
+      $alpha: 0.2,
+    ),
+  $--Opaque-Typography-color-main-pt5:
+    rgba(
+      $color: #333333,
+      $alpha: 0.5,
+    ),
+  $--Opaque-Typography-color-main-pt2:
+    rgba(
+      $color: #333333,
+      $alpha: 0.2,
+    ),
+  $--Inverted-Gradient: linear-gradient(to bottom, #04c051, #18306b) 1,
+  // Additional Colors
+  $--Additional-1: #00d0b0,
+  $--Additional-2: #35d100,
+
+  // Fonts
+  $--theme-font: ("League Spartan", sans-serif),
+  $--theme-font-alternative: ("GE SS Two", sans-serif)
+);
+
+// ------------------------------------------------------------------------------------------------------------
+// NAVDEX

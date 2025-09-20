@@ -1,0 +1,115 @@
+@use 'assets/abstracts' as *;
+$blackBoxWidth: 427px;
+.FeaturedNews {
+  @media #{$l_mobile} {
+    display: none;
+  }
+
+  .mainTitle {
+    position: relative;
+    font: var($text-header2);
+    color: $secondary-color;
+    text-transform: uppercase;
+  }
+  .mainDescription {
+    position: relative;
+    font: var($text-body2r);
+    color: $secondary-color;
+  }
+
+  .date {
+    position: relative;
+    font: var($text-small1);
+    color: $color-gold-light;
+    margin-bottom: 4px;
+    &.hide-date{
+      opacity: 0;
+    }
+  }
+  .title {
+    position: relative;
+    font: var($text-body1r);
+    color: $color-white;
+    margin-bottom: 4px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .description {
+    margin-bottom: 16px;
+    position: relative;
+    font: var($text-body2r);
+    color: $color-white;
+    width: 100%;
+    height: auto;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .label {
+    height: 34px;
+    width: 96px;
+    padding: 8px;
+    margin-bottom: 16px;
+    background-color: $color-white;
+    img {
+      width: 80px !important;
+      height: auto !important;
+    }
+  }
+  :global(.swiper) {
+    margin-top: 40px;
+    margin-bottom: 24px;
+    // height: 540px;
+    height: 542px;
+  }
+  .card {
+    height: 100%;
+    position: relative;
+    &:hover {
+      border-color: rgba(178, 139, 49, 1);
+      :global(.global-arrow-button-text) {
+        color: $color-gold;
+      }
+    }
+  }
+  .category {
+    position: absolute;
+    top: 8px;
+    @include left(8px);
+  }
+  .background-image {
+    position: relative;
+    width: calc(100% - $blackBoxWidth);
+    img {
+      width: 100%;
+      background-size: cover;
+      height: 540px;
+      display: block;
+      background-position: center;
+      object-fit: cover;
+      object-position: center;
+    }
+    .video_play {
+      width: 56px;
+      height: 56px;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1;
+    }
+  }
+  .internal-box-wrap {
+    width: $blackBoxWidth;
+    padding: 24px;
+    position: relative;
+    background-color: $color-black2;
+  }
+  a {
+    text-decoration: none;
+    border: 1px solid transparent;
+  }
+}

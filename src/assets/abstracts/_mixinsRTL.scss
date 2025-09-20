@@ -1,0 +1,724 @@
+// padding
+// ------------------------------------------
+@mixin padding-left($distance) {
+  &:lang(en) {
+    padding-left: $distance;
+  }
+  &:lang(ar) {
+    padding-right: $distance;
+  }
+}
+
+@mixin padding-right($distance) {
+  &:lang(en) {
+    padding-right: $distance;
+  }
+  &:lang(ar) {
+    padding-left: $distance;
+  }
+}
+
+@mixin padding($top, $right, $bottom, $left) {
+  &:lang(en) {
+    padding: $top $right $bottom $left;
+  }
+  &:lang(ar) {
+    padding: $top $left $bottom $right;
+  }
+}
+
+@mixin padding-important($top, $right, $bottom, $left) {
+  &:lang(en) {
+    padding: $top $right $bottom $left !important;
+  }
+  &:lang(ar) {
+    padding: $top $left $bottom $right !important;
+  }
+}
+
+// margin
+// ------------------------------------------
+@mixin margin-left($distance) {
+  &:lang(en) {
+    margin-left: $distance;
+  }
+  &:lang(ar) {
+    margin-right: $distance;
+  }
+}
+
+@mixin margin-right($distance) {
+  &:lang(en) {
+    margin-right: $distance;
+  }
+  &:lang(ar) {
+    margin-left: $distance;
+  }
+}
+
+@mixin margin($top, $right, $bottom, $left) {
+  &:lang(en) {
+    margin: $top $right $bottom $left;
+  }
+  &:lang(ar) {
+    margin: $top $left $bottom $right;
+  }
+}
+
+// float
+// ------------------------------------------
+@mixin bi-app-float-left($important: "") {
+  &:lang(en) {
+    float: left unquote($important);
+  }
+  &:lang(ar) {
+    float: right unquote($important);
+  }
+}
+
+@mixin bi-app-float-right($important: "") {
+  &:lang(en) {
+    float: right unquote($important);
+  }
+  &:lang(ar) {
+    float: left unquote($important);
+  }
+}
+
+@mixin float($direction, $important: "") {
+  @if $direction == left {
+    @include bi-app-float-left($important);
+  } @else if $direction == right {
+    @include bi-app-float-right($important);
+  } @else {
+    float: $direction;
+  }
+}
+
+// text align
+// ------------------------------------------
+@mixin bi-app-text-align-left {
+  &:lang(en) {
+    text-align: left;
+  }
+  &:lang(ar) {
+    text-align: right;
+  }
+}
+
+@mixin bi-app-text-align-right {
+  &:lang(en) {
+    text-align: right;
+  }
+  &:lang(ar) {
+    text-align: left;
+  }
+}
+
+@mixin text-align($direction) {
+  @if $direction == left {
+    @include bi-app-text-align-left;
+  } @else if $direction == right {
+    @include bi-app-text-align-right;
+  } @else {
+    text-align: $direction;
+  }
+}
+
+// clear
+// ------------------------------------------
+@mixin bi-app-clear-left {
+  &:lang(en) {
+    clear: left;
+  }
+  &:lang(ar) {
+    clear: right;
+  }
+}
+
+@mixin bi-app-clear-right {
+  &:lang(en) {
+    clear: right;
+  }
+  &:lang(ar) {
+    clear: left;
+  }
+}
+
+@mixin clear($direction) {
+  @if $direction == left {
+    @include bi-app-clear-left;
+  } @else if $direction == right {
+    @include bi-app-clear-right;
+  } @else {
+    clear: $direction;
+  }
+}
+
+// left / right
+// ------------------------------------------
+@mixin left($distance) {
+  &:lang(en) {
+    left: $distance;
+  }
+  &:lang(ar) {
+    right: $distance;
+  }
+}
+
+@mixin right($distance) {
+  &:lang(en) {
+    right: $distance;
+  }
+  &:lang(ar) {
+    left: $distance;
+  }
+}
+
+// border
+// ------------------------------------------
+
+// width
+@mixin border-left-width($width) {
+  &:lang(en) {
+    border-left-width: $width;
+  }
+  &:lang(ar) {
+    border-right-width: $width;
+  }
+}
+
+@mixin border-right-width($width) {
+  &:lang(en) {
+    border-right-width: $width;
+  }
+  &:lang(ar) {
+    border-left-width: $width;
+  }
+}
+
+@mixin border-width($top, $right, $bottom, $left) {
+  &:lang(en) {
+    border-top-width: $top;
+    border-right-width: $right;
+    border-left-width: $left;
+    border-bottom-width: $bottom;
+  }
+  &:lang(ar) {
+    border-top-width: $top;
+    border-left-width: $right;
+    border-right-width: $left;
+    border-bottom-width: $bottom;
+  }
+}
+
+// style
+@mixin border-left-style($style) {
+  &:lang(en) {
+    border-left: $style;
+  }
+  &:lang(ar) {
+    border-right: $style;
+  }
+}
+
+@mixin border-right-style($style) {
+  &:lang(en) {
+    border-right: $style;
+  }
+  &:lang(ar) {
+    border-left: $style;
+  }
+}
+
+@mixin border-style($top, $right, $bottom, $left) {
+  &:lang(en) {
+    border-top-style: $top;
+    border-right-style: $right;
+    border-left-style: $left;
+    border-bottom-style: $bottom;
+  }
+  &:lang(ar) {
+    border-top-style: $top;
+    border-left-style: $right;
+    border-right-style: $left;
+    border-bottom-style: $bottom;
+  }
+}
+
+// color
+@mixin border-left-color($color) {
+  &:lang(en) {
+    border-left-color: $color;
+  }
+  &:lang(ar) {
+    border-right-color: $color;
+  }
+}
+
+@mixin border-right-color($color) {
+  &:lang(en) {
+    border-right-color: $color;
+  }
+  &:lang(ar) {
+    border-left-color: $color;
+  }
+}
+
+@mixin border-color($top, $right, $bottom, $left) {
+  &:lang(en) {
+    border-top-color: $top;
+    border-right-color: $right;
+    border-left-color: $left;
+    border-bottom-color: $bottom;
+  }
+  &:lang(ar) {
+    border-top-color: $top;
+    border-left-color: $right;
+    border-right-color: $left;
+    border-bottom-color: $bottom;
+  }
+}
+
+// generic
+@mixin border-left($border-style) {
+  &:lang(en) {
+    border-left: $border-style;
+  }
+  &:lang(ar) {
+    border-right: $border-style;
+  }
+}
+
+@mixin border-right($border-style) {
+  &:lang(en) {
+    border-right: $border-style;
+  }
+  &:lang(ar) {
+    border-left: $border-style;
+  }
+}
+
+// radius
+@mixin border-top-left-radius($radius) {
+  &:lang(en) {
+    border-top-left-radius: $radius;
+  }
+  &:lang(ar) {
+    border-top-right-radius: $radius;
+  }
+}
+@mixin border-top-right-radius($radius) {
+  &:lang(en) {
+    border-top-right-radius: $radius;
+  }
+  &:lang(ar) {
+    border-top-left-radius: $radius;
+  }
+}
+@mixin border-bottom-left-radius($radius) {
+  &:lang(en) {
+    border-bottom-left-radius: $radius;
+  }
+  &:lang(ar) {
+    border-bottom-right-radius: $radius;
+  }
+}
+@mixin border-bottom-right-radius($radius) {
+  &:lang(en) {
+    border-bottom-right-radius: $radius;
+  }
+  &:lang(ar) {
+    border-bottom-left-radius: $radius;
+  }
+}
+
+@mixin border-right-radius($radius) {
+  @include border-top-right-radius($radius);
+  @include border-bottom-right-radius($radius);
+}
+
+@mixin border-left-radius($radius) {
+  @include border-top-left-radius($radius);
+  @include border-bottom-left-radius($radius);
+}
+
+@mixin border-top-radius($radius) {
+  @include border-top-left-radius($radius);
+  @include border-top-right-radius($radius);
+}
+
+@mixin border-bottom-radius($radius) {
+  @include border-bottom-left-radius($radius);
+  @include border-bottom-right-radius($radius);
+}
+
+@mixin border-radius(
+  $topLeft,
+  $topRight: null,
+  $bottomRight: null,
+  $bottomLeft: null
+) {
+  @if $topRight != null {
+    @include border-top-left-radius($topLeft);
+    @include border-top-right-radius($topRight);
+    @include border-bottom-right-radius($bottomRight);
+    @include border-bottom-left-radius($bottomLeft);
+  } @else {
+    -webkit-border-radius: $topLeft;
+    -moz-border-radius: $topLeft;
+    border-radius: $topLeft;
+  }
+}
+
+// Support for "direction" declaration (renders ltr/rtl).
+// Useful for form elements as they swap the text-indent property and align the text accordingly.
+@mixin direction {
+  &:lang(en) {
+    direction: rtl;
+  }
+  &:lang(ar) {
+    direction: ltr;
+  }
+}
+
+// ltr / rtl contents
+// ------------------------------------------
+@mixin ltr {
+  &:lang(en) {
+    @content;
+  }
+}
+
+@mixin rtl {
+  &:lang(ar) {
+    @content;
+  }
+}
+
+// helpers
+// ------------------------------------------
+@mixin textStyling($style, $weight, $size, $lineHeight) {
+  font-style: $style;
+  font-weight: $weight;
+  font-size: $size;
+  line-height: $lineHeight;
+}
+
+// @mixin polygonBorderMapper($property, $type) {
+//   #{$property}: $type;
+// }
+
+@mixin spread-map($map: ()) {
+  @each $key, $value in $map {
+    #{$key}: $value;
+  }
+}
+
+// Start transform properties
+@mixin translate($x:0, $y:0, $z:0) {
+  &:lang(en) {
+    transform: translate($x, $y, $z);
+  }
+  &:lang(ar) {
+    transform: translate(-$x, $y, $z);
+  }
+}
+
+@mixin translateX($x) {
+  &:lang(en) {
+    transform: translateX($x);
+  }
+  &:lang(ar) {
+    transform: translateX(-$x);
+  }
+
+}
+// End transform properties
+
+// START pseudo before
+@mixin before-left($distance) {
+  &:lang(en) {
+    &:before {
+      left: $distance;
+    }
+  }
+  &:lang(ar) {
+    &:before {
+      right: $distance;
+    }
+  }
+}
+@mixin before-right($distance) {
+  &:lang(en) {
+    &:before {
+      right: $distance;
+    }
+  }
+  &:lang(ar) {
+    &:before {
+      left: $distance;
+    }
+  }
+}
+// END pseudo  before
+
+// START pseudo after
+@mixin after-left($distance) {
+  &:lang(en) {
+    &:after {
+      left: $distance;
+    }
+  }
+  &:lang(ar) {
+    &:after {
+      right: $distance;
+    }
+  }
+}
+@mixin after-right($distance) {
+  &:lang(en) {
+    &:after {
+      right: $distance;
+    }
+  }
+  &:lang(ar) {
+    &:after {
+      left: $distance;
+    }
+  }
+}
+// END pseudo after
+
+
+// START pseudo transform translate before
+@mixin before-translate($x:0, $y:0, $z:0) {
+  &:lang(en) {
+    &:before {
+      transform: translate($x, $y, $z);
+    }
+  }
+  &:lang(ar) {
+    &:before {
+      transform: translate(-$x, $y, $z);
+    }
+  }
+}
+// END pseudo transform translate before
+
+// START pseudo transform translate after
+@mixin after-translate($x:0, $y:0, $z:0) {
+  &:lang(en) {
+    &:after {
+      transform: translate($x, $y, $z);
+    }
+  }
+  &:lang(ar) {
+    &:after {
+      transform: translate(-$x, $y, $z);
+    }
+  }
+}
+// END pseudo transform translate after
+
+
+// START pseudo transform translateX before
+@mixin before-translateX($x) {
+  &:lang(en) {
+    &:before {
+      transform: translateX($x);
+    }
+  }
+  &:lang(ar) {
+    &:before {
+      transform: translateX(-$x);
+    }
+  }
+}
+// END pseudo transform translateX before
+
+// START pseudo transform translateX after
+@mixin after-translateX($x) {
+  &:lang(en) {
+    &:after {
+      transform: translateX($x);
+    }
+  }
+  &:lang(ar) {
+    &:after {
+      transform: translateX(-$x);
+    }
+  }
+}
+// END pseudo transform translateX after
+
+
+// START pseudo before padding
+@mixin before-padding-left($distance) {
+  &:lang(en) {
+    &:before {
+      padding-left: $distance;
+    }
+  }
+  &:lang(ar) {
+    &:before {
+      padding-right: $distance;
+    }
+  }
+}
+@mixin before-padding-right($distance) {
+  &:lang(en) {
+    &:before {
+      padding-right: $distance;
+    }
+  }
+  &:lang(ar) {
+    &:before {
+      padding-left: $distance;
+    }
+  }
+}
+// END pseudo before padding
+
+// START pseudo after padding
+@mixin after-padding-left($distance) {
+  &:lang(en) {
+    &:after {
+      padding-left: $distance;
+    }
+  }
+  &:lang(ar) {
+    &:after {
+      padding-right: $distance;
+    }
+  }
+}
+@mixin after-padding-right($distance) {
+  &:lang(en) {
+    &:after {
+      padding-right: $distance;
+    }
+  }
+  &:lang(ar) {
+    &:after {
+      padding-left: $distance;
+    }
+  }
+}
+// END pseudo before padding
+
+// START pseudo before margin
+@mixin before-margin-left($distance) {
+  &:lang(en) {
+    &:before {
+      margin-left: $distance;
+    }
+  }
+  &:lang(ar) {
+    &:before {
+      margin-right: $distance;
+    }
+  }
+}
+@mixin before-margin-right($distance) {
+  &:lang(en) {
+    &:before {
+      margin-right: $distance;
+    }
+  }
+  &:lang(ar) {
+    &:before {
+      margin-left: $distance;
+    }
+  }
+}
+// END pseudo before margin
+
+// START pseudo after margin
+@mixin after-margin-left($distance) {
+  &:lang(en) {
+    &:after {
+      margin-left: $distance;
+    }
+  }
+  &:lang(ar) {
+    &:after {
+      margin-right: $distance;
+    }
+  }
+}
+@mixin after-margin-right($distance) {
+  &:lang(en) {
+    &:after {
+      margin-right: $distance;
+    }
+  }
+  &:lang(ar) {
+    &:after {
+      margin-left: $distance;
+    }
+  }
+}
+// END pseudo before margin
+
+// START pseudo after border
+@mixin after-border-left($distance) {
+  &:lang(en) {
+    &:after {
+      border-top-left-radius: $distance;
+      border-bottom-left-radius: $distance;
+    }
+  }
+  &:lang(ar) {
+    &:after {
+      border-top-right-radius: $distance;
+      border-bottom-right-radius: $distance;
+    }
+  }
+}
+@mixin after-border-right($distance) {
+  &:lang(en) {
+    &:after {
+      border-top-right-radius: $distance;
+      border-bottom-right-radius: $distance;
+    }
+  }
+  &:lang(ar) {
+    &:after {
+      border-top-left-radius: $distance;
+      border-bottom-left-radius: $distance;
+    }
+  }
+}
+// END pseudo after border
+
+// START pseudo before border
+@mixin before-border-left($distance) {
+  &:lang(en) {
+    &:before {
+      border-top-left-radius: $distance;
+      border-bottom-left-radius: $distance;
+    }
+  }
+  &:lang(ar) {
+    &:before {
+      border-top-right-radius: $distance;
+      border-bottom-right-radius: $distance;
+    }
+  }
+}
+@mixin before-border-right($distance) {
+  &:lang(en) {
+    &:before {
+      border-top-right-radius: $distance;
+      border-bottom-right-radius: $distance;
+    }
+  }
+  &:lang(ar) {
+    &:before {
+      border-top-left-radius: $distance;
+      border-bottom-left-radius: $distance;
+    }
+  }
+}
+// END pseudo before borde

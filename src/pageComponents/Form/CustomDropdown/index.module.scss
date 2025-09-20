@@ -1,0 +1,86 @@
+// @import "src/assets/scss/base/components-dependencies";
+@use 'assets/abstracts' as *;
+
+.CustomDropdown {
+  .label-font-size {
+    font: var($text-placeholder);
+    color: $color-black;
+  }
+  .input-min-height {
+    min-height: 55px;
+  }
+  .country_flag_container {
+    width: 32px;
+    display: flex;
+    align-items: center;
+  }
+  .dropdown_arrow {
+    @include margin-right(8px);
+  }
+  .text_country {
+    font: var($text-placeholder);
+    color: $color-black;
+    // @include padding-left(8px);
+  }
+  :global(.MuiInputBase-root .MuiFormControlLabel-root) {
+    // transform: scale(1) !important;
+    :global(.MuiTypography-root) {
+      font: var($text-placeholder);
+    }
+  }
+  :global(.MuiInputBase-input) {
+    &.empty_placeholder {
+      font: var($text-placeholder);
+      color: $color-primary-slate-m;
+    }
+  }
+  .dropdown-icon {
+    path {
+      stroke-width: 1;
+    }
+    &.open {
+      position: relative;
+      transform: rotate(180deg);
+    }
+  }
+}
+.popover-dropdown {
+  max-height: 40vh !important;
+  // min-width: 130px !important;
+  box-shadow: none !important;
+  .dropdown-menu-item {
+    &:global(.Mui-focusVisible) {
+      background: unset;
+    }
+    &:hover {
+      background-color: $color-grey;
+      .default-label {
+        > span {
+          color: $color-gold;
+        }
+      }
+    }
+    .default-label {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      margin-left: unset;
+      padding-left: 11px;
+      > span {
+        font: var($text-body2r);
+        color: $color-black;
+        max-width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+  }
+
+  // :global(.MuiAutocomplete-listbox) {
+  @include scrollbar(0px, $color-gold, white, 6px, 4px, 0px, 4px);
+  // }
+}
+.popover-root {
+  z-index: 15 !important;
+}

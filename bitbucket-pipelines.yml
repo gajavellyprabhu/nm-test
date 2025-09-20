@@ -1,0 +1,44 @@
+image: node:18.17.0
+
+options:
+  max-time: 20
+
+pipelines:
+  branches:
+    cicd-pipeline:
+      - step:
+          name: Build & Test
+          caches:
+            - node
+          script:
+            - echo "=== Install Dependencies ==="
+            - npm ci
+            - echo "=== Run Tests ==="
+            - npm test
+            - echo "=== Build Application ==="
+            - npm run build
+          artifacts:
+            - .next/**
+            - node_modules/**
+      - step:
+          name: Build Docker Image
+          script:
+            - echo "=== Building Docker Image for Dev ==="
+            - docker build -t new-murabba:dev --build-arg PORT=10400 .
+            - docker save new-murabba:dev -o new-murabba-dev.tar
+          artifacts:
+            - new-murabba-dev.tar
+      - step:
+          name: Deploy to Dev VM
+          deployment: development
+          script:
+            - echo "=== Copy Docker Image to VM ==="
+            - scp -o StrictHostKeyChecking=no new-murabba-dev.tar user@<DEV_VM_IP>:/home/user/
+            - ssh -o StrictHostKeyChecking=no user@<DEV_VM_IP> "
+                docker load -i /home/user/new-murabba-dev.tar &&
+                docker stop new-murabba-dev || true &&
+                docker rm new-murabba-dev || true &&
+                docker run -d -p 10400:10400 \
+                  --env-file /home/user/new-murabba/.env.development \
+                  --name new-murabba-dev new-murabba:dev
+              "

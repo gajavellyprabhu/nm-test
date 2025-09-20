@@ -1,0 +1,191 @@
+@use 'assets/abstracts' as *;
+.TwoColumnCards {
+  position: relative;
+  @media #{$m_mobile} {
+    .component-content.no-paddding {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+  // padding-top: var($component-space);
+  // padding-bottom: var($component-space);
+
+  .top {
+    margin-bottom: 40px;
+    position: relative;
+    width: 100%;
+    @media #{$m_mobile} {
+      margin-bottom: 32px;
+    }
+    .data {
+      position: relative;
+      width: 100%;
+      max-width: 57.3%;
+      @media #{$m_mobile} {
+        max-width: unset;
+      }
+      .title {
+        position: relative;
+        font: var($text-header2);
+        color: $color-black;
+        text-transform: uppercase;
+        margin-bottom: 16px;
+        @media #{$m_mobile} {
+          margin-bottom: 8px;
+        }
+      }
+      .description {
+        position: relative;
+        font: var($text-body2r);
+        color: $text-dark;
+        @media #{$m_mobile} {
+          margin-bottom: 32px;
+        }
+      }
+    }
+    @media #{$m_mobile} {
+      display: block;
+    }
+  }
+  ul {
+    list-style-type: none;
+    li {
+      height: auto;
+      img {
+        width: 100%;
+      }
+    }
+  }
+  .custom--grid {
+    display: grid;
+    gap: 32px;
+    grid-template-columns: repeat(2, 1fr);
+    @media #{$max_width_1024} {
+      gap: 24px;
+    }
+    @media #{$m_mobile} {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+
+  .card {
+    position: relative;
+    display: block;
+    cursor: default;
+    aspect-ratio: 1/1;
+    border: 1px solid $color-gold;
+
+    .overlay {
+      background-color: $color-black2;
+      transition: opacity 0.3s ease-in-out;
+      opacity: 50%;
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      inset: 0;
+    }
+
+    .background-image {
+      display: block;
+      width: 100%;
+      height: 100%;
+      position: relative;
+      object-fit: cover;
+    }
+    .internal-box-wrap {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 1.5rem;
+      .auto {
+        width: 100%;
+        height: 100%;
+        position: relative;
+      }
+    }
+
+    .internal-box {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: flex-start;
+      padding: 2.5rem;
+      @media #{$max_width_1024} {
+        padding: 1.5rem;
+      }
+      &::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        border: 2.5px solid #b28b3166;
+        mix-blend-mode: plus-lighter;
+      }
+
+      .title {
+        font: var($text-header2);
+        color: $color-white;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        max-height: 144px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+        width: 100%;
+        margin-bottom: 1.5rem;
+        @media #{$max_width_1024} {
+          font: var($text-header5);
+          margin-bottom: 0.5rem;
+          max-height: 90px;
+        }
+        @media #{$l_mobile} {
+          font: var($text-header3);
+          max-height: 90px;
+        }
+        &#{$langAr} {
+          letter-spacing: 0px;
+          max-height: 180px;
+          @media #{$max_width_1024} {
+            -webkit-line-clamp: 2;
+            max-height: 120px;
+          }
+          @media #{$l_mobile} {
+            max-height: 80px;
+          }
+        }
+      }
+      .description {
+        font: var($text-body2r);
+        color: $color-white;
+        max-height: 78px;
+        min-height: 78px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+        margin-bottom: 2rem;
+        @media #{$max_width_1024} {
+          margin-bottom: 1.5rem;
+        }
+        @media #{$l_mobile} {
+          display: none;
+        }
+        &#{$langAr} {
+          max-height: 90px;
+          min-height: 90px;
+        }
+      }
+      .link {
+        z-index: 1;
+      }
+    }
+  }
+}

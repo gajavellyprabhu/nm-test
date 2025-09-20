@@ -1,0 +1,78 @@
+@use 'assets/abstracts' as *;
+
+.ThankYou {
+  display: none;
+  margin: 0 auto;
+  &.show-comp {
+    display: block;
+  }
+
+  .content-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .button {
+      margin-top: 2.5rem;
+    }
+    .icon {
+      width: 72px;
+      height: 72px;
+      margin-bottom: 2.5rem;
+      @media #{$l_mobile} {
+        width: 56px;
+        height: 56px;
+      }
+    }
+    .title {
+      text-align: center;
+      font: var($text-header2);
+      color: var($color-black);
+    }
+    .subtitle {
+      margin-top: 1rem;
+      text-align: center;
+      font: var($text-body2r);
+      color: var($text-dark);
+    }
+  }
+}
+
+.ThankYou.errorPage {
+  display: block;
+  .image-box {
+    width: 100%;
+    max-width: 398px;
+    text-align: center;
+    @media #{$l_mobile} {
+      max-width: 100%;
+    }
+  }
+  .data-box {
+    width: 100%;
+    max-width: calc(100% - 398px);
+    text-align: center;
+    img {
+      width: 100%;
+      height: auto;
+    }
+    @media #{$l_mobile} {
+      max-width: 100%;
+    }
+  }
+  .content-container {
+    .icon {
+      width: 100%;
+      height: auto;
+      @media #{$l_mobile} {
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+  .main-box-container {
+    @media #{$l_mobile} {
+      display: block;
+    }
+  }
+}
+

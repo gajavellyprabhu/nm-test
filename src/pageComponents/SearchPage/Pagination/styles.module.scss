@@ -1,0 +1,123 @@
+@use 'assets/abstracts' as *;
+
+.pagination-component {
+  text-align: center;
+  justify-content: flex-end;
+  align-items: center;
+  display: flex;
+  margin-top: 32px;
+  @media #{$l_mobile} {
+    justify-content: center;
+  }
+
+  li {
+    display: inline-flex;
+    margin: 0 4px;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    min-width: 40px;
+    // @include border-top-right-radius(9px);
+    position: relative;
+    overflow: hidden;
+    font: var($text-small1);
+    cursor: pointer;
+
+    a {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      text-decoration: none;
+      color: #7d7f7c;
+      // @include gradientBorder(var($--gradient1), 0px, 0px, 1px, 1px);
+      border: 1px solid;
+      border-image: linear-gradient(90deg, #b28b31 24.31%, #d9c59a 101.12%);
+      border-image-slice: 1;
+      // background: purple;
+    }
+
+    &:global(.previous) {
+      border: 0px !important;
+      background: unset !important;
+      background-color: unset !important;
+      a {
+        border: 0px !important;
+        background: unset !important;
+        background-color: unset !important;
+      }
+    }
+    &:global(.next) {
+      border: 0px !important;
+      background: unset !important;
+      background-color: unset !important;
+      a {
+        border: 0px !important;
+        background: unset !important;
+        background-color: unset !important;
+      }
+    }
+    &.disabled {
+      cursor: none;
+      pointer-events: none;
+      // color: var($--typography2);
+      color: red;
+      .paginationArrow {
+        // color: var($--typography2);
+        color: red;
+      }
+    }
+    .paginationArrow {
+      text-decoration: none;
+      // font: var($text-body3-normal);
+      // color: var($--primary3Color);
+      color: #7d7f7c;
+      &:hover {
+        color: $color-gold;
+      }
+    }
+
+    &:global(.selected),
+    &:global(:hover) {
+      a {
+        background: $color-gold;
+        color: $color-white !important;
+      }
+    }
+  }
+  :global(.MuiPagination-ul) {
+    > li {
+      border: 1px solid;
+      border-image: linear-gradient(90deg, #b28b31 24.31%, #d9c59a 101.12%);
+      border-image-slice: 1;
+      &:first-child,
+      &:last-child {
+        border: none;
+      }
+    }
+    :global(.MuiButtonBase-root) {
+      background-color: transparent;
+      border-radius: 0px;
+      font: var($text-small1);
+      height: 100%;
+      width: 100%;
+      color: $color-black;
+      padding: 0 3px;
+      margin: 0;
+
+      &:global(.Mui-selected),
+      &:hover {
+        background: $color-gold;
+        color: $color-white;
+      }
+      &:global(.MuiPaginationItem-previousNext) {
+        background: transparent !important;
+      }
+    }
+    :global(.MuiTouchRipple-root) {
+      display: none;
+    }
+  }
+}

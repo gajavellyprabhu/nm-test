@@ -1,0 +1,35 @@
+@use 'assets/abstracts' as *;
+.PopupContainer {
+  :global(.close) {
+    width: 32px;
+    height: 32px;
+    // top: 17px;
+    top: 0 !important;
+    transform: translateY(100%);
+    @media #{$max_width_1024} {
+      top: 0;
+    }
+    @media #{$l_mobile} {
+      transform: none;
+    }
+  }
+  &:global(.isYoutubePopup){
+      :global(.close) {
+        top: -70px !important;
+        @media #{$l_mobile} {
+          top: -32px!important;
+        }
+      }
+  }
+  video {
+    padding-top: 81px;
+    @media #{$l_mobile} {
+      padding-top: 49px;
+    }
+  }
+  .close-icon {
+    width: 18px !important;
+    height: 18px !important;
+  }
+}
+

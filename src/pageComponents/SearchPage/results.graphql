@@ -1,0 +1,123 @@
+query get_search_results(
+  $rootItem: String
+  $language: String
+  $keyword: String
+  $filterSource: [ItemSearchFieldQuery] = null
+  $limit: Int = null
+  $offset: String
+  $facetOn: [String!] = null
+  $sortOrder: String
+  $sortDesc: Boolean = false
+  $fieldsBoosting: [ItemSearchFieldQuery] = null
+) {
+  search(
+    rootItem: $rootItem
+    language: $language
+    fieldsEqual: $filterSource
+    keyword: $keyword
+    first: $limit
+    after: $offset
+    facetOn: $facetOn
+    sortDesc: $sortDesc
+    sortBy: $sortOrder
+    fieldsBoosting: $fieldsBoosting
+  ) {
+    # facets {
+    #   name
+    #   values {
+    #     item {
+    #       ... on Tag_0383da6c2a044800a1a4e566d0af555d {
+    #         title {
+    #           value
+    #         }
+    #       }
+    #     }
+    #     count
+    #   }
+    # }
+    facets {
+      name
+      values {
+        value
+        item {
+          # ... on Tag_0383da6c2a044800a1a4e566d0af555d {
+          ... on Tag {
+            title {
+              value
+            }
+          }
+        }
+        count
+      }
+    }
+    results {
+      totalCount
+      pageInfo {
+        hasNextPage
+        hasPreviousPage
+      }
+
+      items {
+        item {
+          url
+          # ... on _Taggable_b53a5c7b63b348f9b4258ac294bee3a4 {
+          ... on _Taggable {
+            tags {
+              targetItems {
+                # ... on Tag_0383da6c2a044800a1a4e566d0af555d {
+                ... on Tag {
+                  id
+                  title {
+                    value
+                  }
+                }
+              }
+            }
+          }
+          # ... on MediumSizeBanner {
+          #   bannerTitle {
+          #     value
+          #   }
+
+          #   bannerShortDescription {
+          #     value
+          #   }
+          # }
+          # ... on _Title_b483475358a6467f87d717c36d0a9703 {
+          #   bannerTitle: title {
+          #     value
+          #   }
+          # }
+          # ... on _Title {
+          ... on _Title_b483475358a6467f87d717c36d0a9703 {
+            bannerTitle: title {
+              value
+            }
+          }
+          ... on _SeoPageMetadata {
+            bannerShortDescription: pageDescription {
+              value
+            }
+          }
+          ... on NewsDetails {
+            date {
+              value
+              ... on DateField {
+                dateFormatted: formattedDateValue(format: "yyyy-MM-ddT00:00:00Z")
+              }
+            }
+            category {
+              targetItem {
+                ... on Category {
+                  categoryName {
+                    value
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

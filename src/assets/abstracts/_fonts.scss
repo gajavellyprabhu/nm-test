@@ -1,0 +1,116 @@
+// $fontNewMurabbaPath: '/fonts/NewMurabba'; // english font
+// $fontHTArkanPath: '/fonts/HTArkan'; // arabic font
+
+$fontNewMurabbaPath: '/fonts/NewMurabba'; // english font
+$fontHTArkanPath: '/fonts/HTArkan'; // arabic font
+
+// --------------------- New Murabba Font ---------------
+
+@font-face {
+  font-family: 'New Murabba Cy B15';
+  src: url('#{$fontNewMurabbaPath}/NewMurabbaCyB15-Light.eot');
+  src: url('#{$fontNewMurabbaPath}/NewMurabbaCyB15-Light.eot?#iefix') format('embedded-opentype'),
+    url('#{$fontNewMurabbaPath}/NewMurabbaCyB15-Light.woff2') format('woff2'),
+    url('#{$fontNewMurabbaPath}/NewMurabbaCyB15-Light.woff') format('woff'),
+    url('#{$fontNewMurabbaPath}/NewMurabbaCyB15-Light.ttf') format('truetype'),
+    url('#{$fontNewMurabbaPath}/NewMurabbaCyB15-Light.svg#NewMurabbaCyB15-Light') format('svg');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'New Murabba Cy B15';
+  src: url('#{$fontNewMurabbaPath}/NewMurabbaCyB15-Regular.eot');
+  src: url('#{$fontNewMurabbaPath}/NewMurabbaCyB15-Regular.eot?#iefix') format('embedded-opentype'),
+    url('#{$fontNewMurabbaPath}/NewMurabbaCyB15-Regular.woff2') format('woff2'),
+    url('#{$fontNewMurabbaPath}/NewMurabbaCyB15-Regular.woff') format('woff'),
+    url('#{$fontNewMurabbaPath}/NewMurabbaCyB15-Regular.ttf') format('truetype'),
+    url('#{$fontNewMurabbaPath}/NewMurabbaCyB15-Regular.svg#NewMurabbaCyB15-Regular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'New Murabba Cy B15';
+  src: url('#{$fontNewMurabbaPath}/NewMurabbaCyB15-ExtraBold.eot');
+  src: url('#{$fontNewMurabbaPath}/NewMurabbaCyB15-ExtraBold.eot?#iefix')
+      format('embedded-opentype'),
+    url('#{$fontNewMurabbaPath}/NewMurabbaCyB15-ExtraBold.woff2') format('woff2'),
+    url('#{$fontNewMurabbaPath}/NewMurabbaCyB15-ExtraBold.woff') format('woff'),
+    url('#{$fontNewMurabbaPath}/NewMurabbaCyB15-ExtraBold.ttf') format('truetype'),
+    url('#{$fontNewMurabbaPath}/NewMurabbaCyB15-ExtraBold.svg#NewMurabbaCyB15-ExtraBold')
+      format('svg');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'New Murabba Cy B15';
+  src: url('#{$fontNewMurabbaPath}/NewMurabbaCyB15-SemiBold.eot');
+  src: url('#{$fontNewMurabbaPath}/NewMurabbaCyB15-SemiBold.eot?#iefix') format('embedded-opentype'),
+    url('#{$fontNewMurabbaPath}/NewMurabbaCyB15-SemiBold.woff2') format('woff2'),
+    url('#{$fontNewMurabbaPath}/NewMurabbaCyB15-SemiBold.woff') format('woff'),
+    url('#{$fontNewMurabbaPath}/NewMurabbaCyB15-SemiBold.ttf') format('truetype'),
+    url('#{$fontNewMurabbaPath}/NewMurabbaCyB15-SemiBold.svg#NewMurabbaCyB15-SemiBold')
+      format('svg');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+// ----------------------------------- HTArkan Font ------------------
+
+@font-face {
+  font-family: 'HT Arkan';
+  src: url('#{$fontHTArkanPath}/HTArkan-Black.eot');
+  src: url('#{$fontHTArkanPath}/HTArkan-Black.eot?#iefix') format('embedded-opentype'),
+    url('#{$fontHTArkanPath}/HTArkan-Black.woff2') format('woff2'),
+    url('#{$fontHTArkanPath}/HTArkan-Black.woff') format('woff'),
+    url('#{$fontHTArkanPath}/HTArkan-Black.ttf') format('truetype'),
+    url('#{$fontHTArkanPath}/HTArkan-Black.svg#HTArkan-Black') format('svg');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'HT Arkan';
+  src: url('#{$fontHTArkanPath}/HTArkan-Regular.eot');
+  src: url('#{$fontHTArkanPath}/HTArkan-Regular.eot?#iefix') format('embedded-opentype'),
+    url('#{$fontHTArkanPath}/HTArkan-Regular.woff2') format('woff2'),
+    url('#{$fontHTArkanPath}/HTArkan-Regular.woff') format('woff'),
+    url('#{$fontHTArkanPath}/HTArkan-Regular.ttf') format('truetype'),
+    url('#{$fontHTArkanPath}/HTArkan-Regular.svg#HTArkan-Regular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'HT Arkan';
+  src: url('#{$fontHTArkanPath}/HTArkan-Light.eot');
+  src: url('#{$fontHTArkanPath}/HTArkan-Light.eot?#iefix') format('embedded-opentype'),
+    url('#{$fontHTArkanPath}/HTArkan-Light.woff2') format('woff2'),
+    url('#{$fontHTArkanPath}/HTArkan-Light.woff') format('woff'),
+    url('#{$fontHTArkanPath}/HTArkan-Light.ttf') format('truetype'),
+    url('#{$fontHTArkanPath}/HTArkan-Light.svg#HTArkan-Light') format('svg');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'HT Arkan';
+  src: url('#{$fontHTArkanPath}/HTArkan-Medium.eot');
+  src: url('#{$fontHTArkanPath}/HTArkan-Medium.eot?#iefix') format('embedded-opentype'),
+    url('#{$fontHTArkanPath}/HTArkan-Medium.woff2') format('woff2'),
+    url('#{$fontHTArkanPath}/HTArkan-Medium.woff') format('woff'),
+    url('#{$fontHTArkanPath}/HTArkan-Medium.ttf') format('truetype'),
+    url('#{$fontHTArkanPath}/HTArkan-Medium.svg#HTArkan-Medium') format('svg');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}

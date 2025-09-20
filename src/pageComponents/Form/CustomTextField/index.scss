@@ -1,0 +1,8 @@
+@import "src/assets/scss/base/components-dependencies";
+
+.CustomTextField {
+  .label {
+    font: var($text-body2-normal) !important;
+    color: var();
+  }
+}

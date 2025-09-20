@@ -1,0 +1,332 @@
+@use 'assets/abstracts' as *;
+
+.SingleCheckbox {
+  position: relative;
+  height: 44px;
+  @include padding-left(12px);
+  @include padding-right(12px);
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 16px;
+  overflow: hidden;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  // border: 1px solid var($--typography1);
+  border-radius: 12px;
+  .input-text {
+    position: relative;
+    height: 100%;
+    @include margin-left(28px);
+    // font: var($text-body3-normal);
+    // color: var($--secondary3Color);
+  }
+  input {
+    position: absolute;
+    cursor: pointer;
+    top: -100px;
+    @include left(0px);
+  }
+  .check-icon {
+    opacity: 0;
+  }
+  .checkmark {
+    position: absolute;
+    top: 50%;
+    transform: translate3d(0%, -50%, 0);
+    @include left(16px);
+    height: 16px;
+    width: 16px;
+    border-radius: 3px;
+    transition: all 0.3s ease-in-out;
+    // border: 1px solid var($--typography1);
+
+    /* Create the indicator (the dot/circle - hidden when not checked) */
+
+    &:after {
+      content: '';
+      position: absolute;
+      display: none;
+    }
+  }
+  .checkmark-border {
+    pointer-events: none;
+    border-radius: 12px;
+    position: absolute;
+    top: 0;
+    @include left(0px);
+    width: 100%;
+    height: 100%;
+    transition: background 0.3s ease-in-out;
+  }
+  &.is-checked {
+    .checkmark {
+      border: 1px solid transparent;
+      // background-color: var($--primary3Color);
+    }
+    /* Show the indicator (dot/circle) when checked */
+    .checkmark:after {
+      display: block;
+    }
+    .checkmark-border {
+      // background: var($--primary5Color);
+      //   border: 1px solid var($--primary3Color);
+    }
+    .input-text {
+      // color: var($--primary2Color);
+    }
+    .check-icon {
+      opacity: 1;
+    }
+  }
+  /* Style the indicator (dot/circle) */
+  .checkmark {
+    pointer-events: none;
+    // &:after {
+    //   top: 50%;
+    //   left: 50%;
+    //   transform: translate3d(-50%, -50%, 0);
+    //   width: 4px;
+    //   height: 4px;
+    //   border-radius: 50%;
+    //   background: var($--primary4Color);
+    // }
+  }
+  @include margin-right(16px);
+  &:last-child {
+    @include margin-right(0px);
+  }
+}
+
+.SingleRadioButton {
+  position: relative;
+  height: 44px;
+  @include padding-left(35px);
+  @include padding-right(12px);
+  margin-bottom: 12px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  .input-text {
+    position: relative;
+    height: 100%;
+    // font: var($text-body2-normal);
+    // color: var($--typography3);
+    @include margin-left(8px);
+  }
+  input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }
+  .checkmark {
+    position: absolute;
+    top: 50%;
+    transform: translate3d(0%, -50%, 0);
+    @include left(16px);
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    // border: 1px solid var($--primary3Color);
+    transition: all 0.3s ease-in-out;
+    /* Create the indicator (the dot/circle - hidden when not checked) */
+
+    &:after {
+      content: '';
+      position: absolute;
+      display: none;
+    }
+  }
+  .checkmark-border {
+    pointer-events: none;
+    border-radius: 12px;
+    // border: 1px solid var($--typography1);
+    position: absolute;
+    top: 0;
+    @include left(0px);
+    width: 100%;
+    height: 100%;
+    transition: background 0.3s ease-in-out;
+  }
+
+  &.is-checked {
+    .checkmark {
+      // background-color: var($--primary3Color);
+    }
+    /* Show the indicator (dot/circle) when checked */
+    .checkmark:after {
+      display: block;
+    }
+    .checkmark-border {
+      // background: var($--primary5Color);
+      // border: 1px solid var($--primary3Color);
+    }
+    .input-text {
+      // color: var($--primary2Color);
+    }
+  }
+  /* Style the indicator (dot/circle) */
+  .checkmark {
+    pointer-events: none;
+    &:after {
+      top: 50%;
+      left: 50%;
+      transform: translate3d(-50%, -50%, 0);
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      // background: var($--primary4Color);
+    }
+  }
+  @include margin-right(16px);
+  &:last-child {
+    @include margin-right(0px);
+  }
+}
+
+.OneCheckbox {
+  position: relative;
+  height: 44px;
+  @include padding-left(12px);
+  @include padding-right(12px);
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 16px;
+  overflow: hidden;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  //   border: 1px solid var($--typography1);
+  //   border-radius: 12px;
+  .input-text {
+    position: relative;
+    height: 100%;
+    @include margin-left(28px);
+    // font: var($text-body3-normal);
+    // color: var($--secondary3Color);
+  }
+  input {
+    position: absolute;
+    // opacity: 0;
+    cursor: pointer;
+    top: -100px;
+    @include left(0px);
+  }
+  .check-icon {
+    opacity: 0;
+  }
+  .checkmark {
+    display: flex;
+    position: absolute;
+    top: 50%;
+    transform: translate3d(0%, -50%, 0);
+    @include left(16px);
+    height: 16px;
+    width: 16px;
+    border-radius: 3px;
+    transition: all 0.3s ease-in-out;
+    // border: 1px solid var($--typography1);
+    padding: 3px;
+    /* Create the indicator (the dot/circle - hidden when not checked) */
+    img {
+      display: block;
+      width: 100%;
+    }
+    &:after {
+      content: '';
+      position: absolute;
+      display: none;
+    }
+  }
+  .checkmark-border {
+    pointer-events: none;
+    border-radius: 12px;
+    position: absolute;
+    top: 0;
+    @include left(0px);
+    width: 100%;
+    height: 100%;
+    transition: background 0.3s ease-in-out;
+  }
+  &.is-checked {
+    .checkmark {
+      border: 1px solid transparent;
+      // background-color: var($--primary3Color);
+    }
+    /* Show the indicator (dot/circle) when checked */
+    .checkmark:after {
+      display: block;
+    }
+    .checkmark-border {
+      // background: var($--primary5Color);
+      //   border: 1px solid var($--primary3Color);
+    }
+    .input-text {
+      // color: var($--primary2Color);
+    }
+    .check-icon {
+      opacity: 1;
+    }
+  }
+  /* Style the indicator (dot/circle) */
+  .checkmark {
+    pointer-events: none;
+    // &:after {
+    //   top: 50%;
+    //   left: 50%;
+    //   transform: translate3d(-50%, -50%, 0);
+    //   width: 4px;
+    //   height: 4px;
+    //   border-radius: 50%;
+    //   background: var($--primary4Color);
+    // }
+  }
+  @include margin-right(16px);
+  &:last-child {
+    @include margin-right(0px);
+  }
+}
+
+// MUI
+.radio-group-mui {
+  flex-direction: row !important;
+  .SingleRadioButton {
+    // border: 1px solid var($--typography1);
+    border-radius: 12px;
+    height: 44px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    @include padding-left(10px);
+    @include padding-right(10px);
+    margin-bottom: 12px;
+    @include margin-left(0px);
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    .radio-mui-span {
+      color: transparent !important;
+      background-color: transparent !important;
+      @include padding-left(0px);
+      @include padding-right(0px);
+      @include margin-right(4px);
+    }
+    &.is-checked {
+      // color: var($--primary2Color-fix) !important;
+      // background-color: $--radioButtonBg !important;
+    }
+  }
+}
+.checkbox-mui {
+  label {
+    // font: var($text-body2-normal);
+    // color: var($--typography3);
+  }
+}

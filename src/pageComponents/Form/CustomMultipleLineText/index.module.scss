@@ -1,0 +1,36 @@
+// @import "src/assets/scss/base/components-dependencies";
+@use 'assets/abstracts' as *;
+
+.CustomMultipleLineText {
+  :global(.MuiInputBase-root) {
+    padding: 0 !important;
+  }
+  // margin-top: 17px;
+  // .label {
+  //   font: var($text-body2-normal) !important;
+  //   color: var();
+  // }
+  // .green-label-body2 {
+  //   top: -33px;
+  // }
+  // .MuiInputBase-root {
+  //   border: 1px solid var($--primary2Color-fix);
+  //   border-radius: 10px;
+  //   padding: 8px;
+  //   &::after {
+  //     content: unset;
+  //   }
+  //   &::before {
+  //     content: unset;
+  //   }
+  //   &.Mui-error {
+  //     border-color: red;
+  //   }
+  //   &.Mui-disabled {
+  //     border: 1px solid var($--input-disabled);
+  //   }
+  //   &:hover:not(.Mui-disabled, .Mui-error) {
+  //     border: 1px solid var($--primary3Color-fix);
+  //   }
+  // }
+}

@@ -1,0 +1,142 @@
+@use 'assets/abstracts' as *;
+
+.PageContentComponent {
+  position: relative;
+  width: 100%;
+  // padding-top: var($component-space);
+  // padding-bottom: var($component-space);
+  .component-header {
+    max-width: 80%;
+    min-width: 607px;
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: space-between;
+    @media #{$l_mobile} {
+      margin-bottom: 64px;
+    }
+    .arrow-text {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      column-gap: 8px;
+      text-decoration: none;
+      color: $secondary-color;
+      font: var($text-body2r);
+      .arrow-icon {
+        &#{$langAr} {
+          transform: scaleX(-1);
+        }
+      }
+    }
+  }
+  .box {
+    position: relative;
+    @media #{$l_mobile} {
+      flex-direction: column;
+      row-gap: 40px;
+    }
+
+    .top {
+      position: relative;
+      width: 100%;
+      @media #{$l_mobile} {
+        display: block;
+      }
+      .details {
+        // @media #{$l_mobile} {
+        //   display: none;
+        // }
+        .date {
+          color: rgba(123, 123, 123, 1);
+          font: var($text-small1);
+          @media #{$l_mobile} {
+            margin-top: 8px;
+            margin-bottom: 16px;
+          }
+        }
+      }
+    }
+
+    .title-description-wrapper {
+      position: relative;
+      .list {
+        position: relative;
+        max-width: 821px;
+        width: 100%;
+        @media #{$l_mobile} {
+          max-width: inherit;
+        }
+      }
+      h1.title {
+        font: var($text-header2);
+        text-transform: uppercase;
+        position: relative;
+        display: block;
+        border-bottom: 1px solid rgba(230, 217, 189, 1);
+        margin-bottom: 40px;
+        padding-bottom: 8px;
+        width: 100%;
+      }
+      h2.title {
+        position: relative;
+        font: var($text-header4);
+        color: $secondary-color;
+        margin-bottom: 16px;
+        text-transform: uppercase;
+        display: block;
+        @media #{$l_mobile} {
+          margin-bottom: 8px;
+        }
+      }
+      h3.title {
+        position: relative;
+        font: var($text-body1b);
+        color: $secondary-color;
+        margin-bottom: 16px;
+        // margin-bottom: 8px;
+        text-transform: uppercase;
+        display: block;
+        @media #{$l_mobile} {
+          // margin-bottom: 6px;
+          margin-bottom: 8px;
+        }
+      }
+      .description {
+        position: relative;
+        margin-bottom: 32px;
+        font: var($text-body2r);
+        color: $secondary-color;
+        display: block;
+        h1 {
+          font: var($text-header2);
+          text-transform: uppercase;
+          position: relative;
+          display: block;
+        }
+        h2 {
+          position: relative;
+          font: var($text-header4);
+          color: $secondary-color;
+          margin-bottom: 16px;
+          text-transform: uppercase;
+          display: block;
+          @media #{$l_mobile} {
+            margin-bottom: 8px;
+          }
+        }
+        h3 {
+          position: relative;
+          font: var($text-body1b);
+          color: $secondary-color;
+          margin-bottom: 8px;
+          text-transform: uppercase;
+          display: block;
+          @media #{$l_mobile} {
+            margin-bottom: 6px;
+          }
+        }
+      }
+    }
+  }
+}
+

@@ -1,0 +1,19 @@
+// @import "src/assets/scss/base/components-dependencies";
+@use 'assets/abstracts' as *;
+.ErrorComponent {
+  :global(.Mui-error) {
+    font: var($text-small2);
+    @include margin-left(16px);
+    margin-top: 4px;
+  }
+  // .error-text,
+  // .helper-text {
+  //   font: var($text-body5);
+  // }
+  // .error-text {
+  //   color: var($--red-error-color) !important;
+  // }
+  // .helper-text {
+  //   color: var($--typography2-fix);
+  // }
+}

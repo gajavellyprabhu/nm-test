@@ -1,0 +1,434 @@
+@use 'assets/abstracts' as *;
+
+.ProgressBar {
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 110px);
+  min-height: 680px;
+
+  @media #{$l_mobile} {
+    min-height: unset;
+    height: max-content;
+  }
+
+
+  .boxes {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+
+    @media #{$l_mobile} {
+      padding-top: 48px;
+      justify-content: unset;
+    }
+  }
+
+  .scroll-arrow-wrap {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    bottom: 0;
+    @include left(0px);
+  }
+
+  .arrow-scroll {
+    position: absolute;
+    bottom: 80px;
+    @include right(24px);
+  }
+
+  :global(.play-button) {
+    @include margin-right(10px);
+  }
+
+  :global(.component-wrapper) {
+    height: 100%;
+  }
+
+  :global(.component-content) {
+    height: 100%;
+
+    @media #{$l_mobile} {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+
+  .video-text-wrap {
+    height: 100%;
+  }
+
+  .box {
+    width: 100%;
+    position: relative;
+
+    &.thumb-box {
+      position: absolute;
+      bottom: 96px;
+      @include left(0px);
+
+      @media #{$l_mobile} {
+        bottom: 76px;
+      }
+    }
+
+    .auto {
+      height: auto;
+      position: relative;
+    }
+
+    .title {
+      position: relative;
+      font: var($text-header2);
+      color: $color-white;
+      margin-bottom: 32px;
+      text-transform: uppercase;
+
+      @media #{$l_mobile} {
+        margin-bottom: 40px;
+
+        @media #{$l_mobile} {
+          padding-left: 24px;
+          padding-right: 24px;
+        }
+      }
+    }
+
+    .description {
+      position: relative;
+      font: var($text-body2r);
+      color: $color-white;
+      margin-bottom: 40px;
+    }
+  }
+
+  .text-wrap {
+    position: absolute;
+    bottom: 0;
+    @include left(0px);
+  }
+
+  .videos {
+    height: 100%;
+    width: 100%;
+    position: relative;
+
+    @media #{$l_mobile} {
+      position: absolute;
+    }
+  }
+
+  .video {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transition: opacity 0.3s ease-in-out;
+
+    &.selected {
+      opacity: 1;
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      clear: both;
+      display: block;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background:
+        linear-gradient(270deg, rgba(0, 0, 0, 0) 22.33%, rgba(0, 0, 0, 0.6) 99.31%),
+        linear-gradient(0deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%);
+    }
+
+    @include after-left(0px);
+  }
+
+  img,
+  source,
+  video {
+    object-fit: cover;
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .scroll-arrow-wrap {
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    @include left(0px);
+    width: 100%;
+    height: 100%;
+
+    @media #{$l_mobile} {
+      position: unset;
+    }
+  }
+
+  .item-button-prev {
+    margin-bottom: 32px;
+  }
+
+  .item-button-next {
+    margin-top: 32px;
+  }
+
+  .item-button {
+    cursor: pointer;
+    position: relative;
+    transition: opacity 0.3s ease-in-out;
+
+    &:global(.swiper-button-disabled) {
+      opacity: 0;
+      pointer-events: none;
+    }
+  }
+
+  .inline-grid-mobile {
+    @media #{$l_mobile} {
+      display: inline-grid;
+    }
+  }
+
+  .card-box {
+    width: 264px;
+    cursor: pointer;
+    background: rgba(17, 17, 17, 0.9);
+
+    @media #{$l_mobile} {
+      order: 2;
+      width: 100%;
+      display: flex;
+      margin-top: 44px;
+      height: max-content;
+
+    }
+
+    .poster-image {
+      display: block;
+      position: relative;
+
+      @media #{$l_mobile} {
+        width: 40%;
+        padding: 10px;
+        @include padding-right(6px);
+        padding-bottom: 15px;
+      }
+
+      .image {
+        height: 174px !important;
+
+        @media #{$l_mobile} {
+          height: 100% !important;
+        }
+      }
+
+      .play-btn {
+        width: 56px;
+        height: 56px;
+        position: absolute;
+        padding: 17.9px 19.16px;
+        @include margin-right(0);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+
+    .box-data {
+      padding: 24px;
+      @include padding-right(15px);
+
+      @media #{$l_mobile} {
+        padding: 10px;
+        padding-bottom: 15px;
+        width: 60%;
+      }
+
+      .title {
+        color: $color-gold-light;
+        font: var($text-small2);
+        text-transform: unset;
+        margin-bottom: 8px;
+
+        @media #{$l_mobile} {
+          padding-left: 0px;
+          padding-right: 0px;
+        }
+      }
+
+      .description {
+        color: $color-white;
+        font: var($text-small1);
+        font-weight: 600;
+        margin-top: 8px;
+
+        @media #{$l_mobile} {
+          margin-bottom: 8px;
+        }
+      }
+
+      .btn-wrap {
+        position: relative;
+        width: 100%;
+      }
+
+      .btn-bottom {
+        @media #{$l_mobile} {
+          * {
+            font-size: 12px;
+          }
+        }
+      }
+    }
+
+    border: 1px solid transparent;
+
+    &:hover {
+      border: 1px solid rgb(178, 139, 49);
+      box-shadow: 4px 4px 14px -10px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease-in-out;
+
+      .btn-wrap * {
+        color: $color-gold;
+        transition: all 0.3s ease-in-out;
+      }
+
+      .play-btn {
+        background-color: rgba(17, 17, 17, 0.7);
+        transition: all 0.3s ease-in-out;
+      }
+    }
+  }
+
+  .progress-bar {
+    @include margin-left(70px);
+    max-width: 272px;
+    position: relative;
+
+    @media #{$l_mobile} {
+      padding-left: 24px;
+      padding-right: 24px;
+      @include margin-left(35px);
+    }
+
+    &:before {
+      content: '';
+      position: absolute;
+      width: 1px;
+      background: linear-gradient(90deg, rgba(115, 104, 82, 0.00) 0%, $color-gold-light 9.23%);
+      margin-left: -35px;
+      height: calc(100% - 46px);
+      margin-top: 35px;
+    }
+
+    @include rtl() {
+      &:before {
+        margin-left: 0px;
+        margin-right: -35px;
+      }
+    }
+
+    @media #{$l_mobile} {
+      &:before {
+        margin-left: -25px;
+        height: calc(100% - 22px);
+      }
+
+      @include rtl() {
+        &:before {
+          margin-left: 0px;
+          margin-right: -25px;
+        }
+      }
+    }
+
+    .text {
+      color: $color-white;
+      font: var($text-header5);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+
+      &:before {
+        content: '';
+        position: absolute;
+        width: 8px;
+        height: 8px;
+        background: $color-gold-light;
+        margin-left: -39px;
+        margin-top: 8px;
+      }
+
+      @include rtl() {
+        &:before {
+          margin-left: 0px;
+          margin-right: -39px;
+        }
+      }
+
+      @media #{$l_mobile} {
+        &:before {
+          margin-left: -29px;
+        }
+
+        @include rtl() {
+          &:before {
+            margin-left: 0px;
+            margin-right: -29px;
+          }
+        }
+      }
+
+      &:first-child::before {
+        content: '';
+        position: absolute;
+        width: 22px;
+        height: 22px;
+        background: url('../../../public/images/squre.png');
+        background-size: contain;
+        margin-left: -45px;
+        margin-top: 8px;
+      }
+
+      @include rtl() {
+        &:first-child::before {
+          margin-left: 0px;
+          margin-right: -45px;
+        }
+      }
+
+      @media #{$l_mobile} {
+        &:first-child::before {
+          margin-left: -35px;
+        }
+      }
+
+      @include rtl() {
+        @media #{$l_mobile} {
+          &:first-child::before {
+            margin-left: 0px;
+            margin-right: -35px;
+          }
+        }
+      }
+    }
+
+    .description {
+      color: $color-white;
+      font: var($text-body2r);
+      margin-bottom: 24px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .image-container {
+    height: 100%;
+  }
+}

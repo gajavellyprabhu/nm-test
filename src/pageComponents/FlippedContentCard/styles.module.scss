@@ -1,0 +1,168 @@
+@use 'assets/abstracts' as *;
+
+.FlippedContentCard {
+  position: relative;
+  &.gray-background {
+    background-color: #f9f9f9;
+  }
+  :global(.component-content) {
+    position: static;
+    // padding-top: 230px;
+    // padding-bottom: 230px;
+    // @media #{$l_mobile} {
+    //   padding-top: 120px;
+    //   padding-bottom: 120px;
+    // }
+  }
+  .content-container {
+    width: 100%;
+    display: flex;
+    // justify-content: center;
+    align-items: center;
+    .content {
+      @include margin-right(32px);
+    }
+    &.image-left {
+      flex-direction: row-reverse;
+      @media #{$l_mobile} {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .content {
+        @include margin-left(32px);
+      }
+    }
+    @media #{$l_mobile} {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .content {
+      flex: 1 1 calc(35% - 32px);
+      @include margin-right(32px);
+      &.min-width {
+        min-width: 400px;
+        @media #{$l_mobile} {
+          min-width: unset;
+        }
+      }
+      .title {
+        font: var($text-header2);
+        color: #111; // to Change
+        text-transform: uppercase;
+      }
+      .description {
+        padding-top: 16px;
+        font: var($text-body2r);
+        color: #4f4f4f; // to Change
+        @media #{$l_mobile} {
+          padding-top: 8px;
+        }
+      }
+      .learn-more-button {
+        margin-top: 40px;
+        width: fit-content;
+        @media #{$l_mobile} {
+          margin-top: 32px;
+        }
+        &:nth-child(1) {
+          @include margin-right(40px);
+          @media #{$l_mobile} {
+            @include margin-right(40px);
+          }
+        }
+      }
+      .twoCta{
+        .learn-more-button{
+          @media #{$s_mobile} {
+            width: 100%;
+            display: block;
+            text-align: center;
+          }
+        }
+      }
+      @media #{$l_mobile} {
+        @include margin-left(0!important);
+        @include margin-right(0!important);
+      }
+    }
+    .image {
+      flex: 1 1 49.6%;
+      // box-shadow: 20px 34px 34px -10px rgba(0, 0, 0, 0.15);
+      @media #{$l_mobile} {
+        margin-top: 32px;
+        flex: unset;
+        width: 100%;
+        max-width: 500px;
+      }
+      img {
+        height: 366px !important;
+        @media #{$l_mobile} {
+          height: 240px !important;
+        }
+      }
+      &.portrait {
+        img {
+          height: 608px !important;
+          @media #{$l_mobile} {
+            height: 313px !important;
+          }
+        }
+      }
+      img {
+        position: relative;
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+    }
+  }
+  .logo-list {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+    column-gap: 32px;
+    row-gap: 24px;
+    @media #{$max_width_820} {
+      margin-top: 32px;
+      gap: 24px;
+    }
+
+    .logo {
+      // & + .logo {
+      //   margin-top: 16px;
+      // }
+      // flex: 1 1 33%;
+      display: flex;
+      align-items: center;
+      .image {
+        object-fit: contain;
+        flex: 0 0 72px;
+        @include margin-right(16px);
+        @media #{$l_mobile} {
+          flex: 0 0 56px;
+          width: 56px;
+          height: 56px;
+        }
+      }
+      .text {
+        font: var($text-body1r);
+        color: $secondary-color;
+        // max-width: 194px;
+      }
+    }
+  }
+  .background-pattern {
+    position: absolute;
+    @include right(0);
+    top: 0;
+    z-index: -1;
+    width: 50%;
+    min-width: 635px;
+    @media #{$l_mobile} {
+      min-width: unset;
+      width: 80%;
+    }
+  }
+}

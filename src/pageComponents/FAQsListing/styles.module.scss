@@ -1,0 +1,125 @@
+@use 'assets/abstracts' as *;
+
+.FAQsListing {
+  .faq_container {
+    display: flex;
+    justify-content: space-between;
+    gap: 32px;
+    position: relative;
+    @media #{$l_mobile} {
+      flex-direction: column;
+    }
+    .left-section {
+      flex: 1 1 33%;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      @media #{$l_mobile} {
+        gap: 32px;
+      }
+      .title {
+        font: var($text-header2);
+        color: $color-black;
+        text-transform: uppercase;
+      }
+      :global(.global-arrow-button-text) {
+        color: $color-black;
+        &:hover {
+          color: $color-gold;
+        }
+      }
+      .tabs-container {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        .tab-container {
+          position: relative;
+          width: fit-content;
+          .tab {
+            font: var($text-body2rCaps);
+            color: $color-black;
+            cursor: pointer;
+            padding: 8px;
+            &.active {
+              color: $color-gold;
+            }
+          }
+          .underline {
+            position: absolute;
+            bottom: 0;
+            @include left(0px);
+            background: $color-gold;
+            width: 100%;
+            height: 2px;
+          }
+        }
+      }
+    }
+    .items_container {
+      flex: 1 1 65%;
+      .accordion_container {
+        border-bottom: 1px solid $color-gold;
+        border-radius: 0;
+        flex: 1 1 60%;
+
+        & + .accordion_container {
+          margin-top: 24px;
+          margin-bottom: 0;
+        }
+
+        &:before {
+          background: unset;
+          content: unset;
+        }
+        &.active {
+          background: $color-grey !important;
+          // box-shadow: 0px 14px 24px 0px rgba(0, 0, 0, 0.05);
+          border-bottom: unset;
+          .summary {
+            padding-bottom: 16px;
+          }
+        }
+        .summary {
+          flex-direction: row-reverse;
+          padding: 24px 32px;
+          @media #{$l_mobile} {
+            padding: 24px;
+          }
+          :global(.MuiAccordionSummary-content) {
+            margin: 0;
+            @include margin-left(16px);
+          }
+          :global(.MuiAccordionSummary-expandIconWrapper) {
+            transition: none;
+            .tab_open_icon {
+              height: 31px;
+              width: 31px;
+            }
+          }
+          .question {
+            font: var($text-body1b);
+            color: $color-black;
+          }
+        }
+        .answer {
+          padding: 0px 32px 24px;
+          @media #{$l_mobile} {
+            padding: 0px 24px 24px;
+          }
+          .text {
+            font: var($text-body2r);
+            color: $color-black;
+          }
+        }
+      }
+      .load_more_btn {
+        margin-top: 40px;
+        padding: 10px 16px;
+        .plus_icon {
+          @include margin-right(14px);
+        }
+      }
+    }
+  }
+}
+

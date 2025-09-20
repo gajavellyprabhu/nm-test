@@ -1,0 +1,67 @@
+@use 'assets/abstracts' as *;
+// @import './Shared/styles.scss';
+
+.FormsContainer {
+  background: $color-grey;
+  position: relative;
+  z-index: 1;
+  .form-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 32px;
+    @media #{$l_mobile} {
+      flex-direction: column;
+      gap: 24px;
+    }
+    .content-title-text-wrapper {
+      max-width: 40%;
+      width: 100%;
+      @media #{$l_mobile} {
+        max-width: unset;
+      }
+      .title {
+        font: var($text-header2);
+        color: $color-black;
+      }
+      .text {
+        margin-top: 0.5rem;
+        font: var($text-body2r);
+        color: #4f4f4f;
+      }
+    }
+    .form-wrapper {
+      background: $color-white;
+      padding: 2.5rem;
+      border: 1px solid #b28b31;
+      width: 60%;
+      @media #{$l_mobile} {
+        padding: 1.5rem;
+        width: 100%;
+      }
+      :global(fieldset.hidden-recaptcha) {
+        display: none;
+      }
+      // label {
+      //   font: var($text-small2);
+      //   transform: translate(14px, -9px) scale(1);
+      //   &#{$langAr} {
+      //     transform: translate(-14px, -9px) scale(1);
+      //   }
+      // }
+
+      input,
+      textarea {
+        font: var($text-placeholder);
+        box-sizing: content-box !important;
+        padding: 16px 13px;
+        &::placeholder {
+          font: var($text-placeholder);
+        }
+      }
+      &.expand {
+        width: 100%;
+      }
+    }
+  }
+}

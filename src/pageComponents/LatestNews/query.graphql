@@ -1,0 +1,93 @@
+query get_news(
+  $rootItem: String
+  $language: String
+  $keyword: String
+  $filterSource: [ItemSearchFieldQuery] = null
+  $limit: Int = null
+  $offset: String
+  $facetOn: [String!] = null
+  $sortBy: String
+  $sortDesc: Boolean = false
+) {
+  search(
+    rootItem: $rootItem
+    language: $language
+    fieldsEqual: $filterSource
+    keyword: $keyword
+    first: $limit
+    after: $offset
+    facetOn: $facetOn
+    sortDesc: $sortDesc
+    sortBy: $sortBy
+  ) {
+    results {
+      totalCount
+      pageInfo {
+        hasNextPage
+        hasPreviousPage
+      }
+      items {
+        item {
+          id
+          template {
+            name
+          }
+          ... on Interview {
+            enablePlayButton {
+              value
+            }
+            link {
+              url
+            }
+            suppressDate {
+              value: boolValue
+            }
+          }
+          ... on NewsDetails {
+            url
+          }
+          ... on NewsItem {
+            thumbnailImage {
+              src
+              alt
+            }
+            newsSource {
+              targetItem {
+                ... on Source {
+                  sourceName {
+                    value
+                  }
+                  logo {
+                    src
+                  }
+                }
+              }
+            }
+            date {
+              value
+              ... on DateField {
+                dateFormatted: formattedDateValue(format: "yyyy-MM-ddT00:00:00Z")
+              }
+            }
+            title {
+              value
+            }
+            shortDescription: shortDescription_bea5cec46d184bda8f6bb1afe423f8b2 {
+              value
+            }
+            category {
+              targetItem {
+                ... on Category {
+                  id
+                  categoryName {
+                    value
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

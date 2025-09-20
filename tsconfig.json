@@ -1,0 +1,74 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "components/*": [
+        "src/components/*"
+      ],
+      "pageComponents/*": [
+        "src/pageComponents/*"
+      ],
+      "lib/*": [
+        "src/lib/*"
+      ],
+      "temp/*": [
+        "src/temp/*"
+      ],
+      "utils": [
+        "src/utils"
+      ],
+      "assets/*": [
+        "src/assets/*"
+      ],
+      "subComponents/*": [
+        "src/subComponents/*"
+      ],
+      "globalContext/*": [
+        "src/globalContext/*"
+      ],
+      "customHooks/*": [
+        "src/customHooks/*"
+      ],
+      "graphql-types": [
+        "node_modules/@types/graphql-let/__generated__/__types__"
+      ],
+      "react": [
+        "node_modules/@types/react"
+      ]
+    },
+    "target": "es5",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "strictFunctionTypes": false,
+    "downlevelIteration": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "allowSyntheticDefaultImports": true,
+    "noImplicitReturns": true,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": true,
+    "incremental": true,
+    "forceConsistentCasingInFileNames": false
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

@@ -1,0 +1,35 @@
+@use 'assets/abstracts/' as *;
+
+.cookieBannerComponent {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  color: $color-white;
+  // color: $color-black;
+  z-index: 100;
+
+  .inner-container {
+    background: $color-black;
+    // background: $color-white;
+    padding: 24px 48px;
+    display: flex;
+    justify-content: space-between;
+    font: var($text-body2r);
+    border: 1px solid $color-gold;
+    @media #{$l_mobile} {
+      flex-direction: column;
+      gap: 16px;
+      padding: 24px;
+    }
+    .text {
+      flex-basis: 80%;
+      @media #{$l_mobile} {
+        flex-basis: 100%;
+      }
+      a {
+        color: $color-gold;
+      }
+    }
+  }
+}

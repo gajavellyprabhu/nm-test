@@ -1,0 +1,99 @@
+@use 'assets/abstracts' as *;
+
+.SitemapComponent {
+  position: relative;
+  .intro-section {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    padding-bottom: 20px;
+    align-items: flex-end;
+    &::after {
+      content: '';
+      background: $color-gold2;
+      height: 1px;
+      width: 100%;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+    }
+    @media #{$l_mobile} {
+      align-items: flex-start;
+      flex-direction: column;
+      padding-bottom: 16px;
+      gap: 8px;
+    }
+    .main-title {
+      font: var($text-header2);
+      color: $color-black;
+    }
+    .last-updated {
+      font: var($text-small1);
+      color: $color-grey-faded2;
+      margin-bottom: 5px;
+    }
+  }
+  .grid-container {
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+    @media #{$l_mobile} {
+      gap: 32px;
+      margin-top: 32px;
+    }
+    .span_all {
+      grid-column: 1 / -1;
+    }
+    .sub-container {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      @media #{$l_mobile} {
+        gap: 16px;
+      }
+    }
+    .link {
+      text-decoration: none;
+      cursor: pointer;
+      width: fit-content;
+      height: fit-content;
+      position: relative;
+      &:after {
+        position: absolute;
+        bottom: 0;
+        height: 1px;
+        background: black;
+        display: block;
+        width: 0%;
+        content: '';
+        transition: width ease-in 0.2s;
+      }
+      &:hover {
+        &:after {
+          width: 100%;
+        }
+      }
+      // &.no-hover-effect {
+      //   cursor: auto;
+      //   &::after {
+      //     content: unset;
+      //   }
+      //   border: 1px solid transparent !important;
+      // }
+      // arrow
+      // &>img{
+      //   display: none;
+      // }
+    }
+    .title {
+      font: var($text-body1b);
+      color: $color-black;
+      text-decoration: none;
+      &.normal-title {
+        font: var($text-body2r);
+      }
+    }
+  }
+}
+

@@ -1,0 +1,86 @@
+@use 'assets/abstracts' as *;
+
+.NewsletterBanner {
+  background: rgba(249, 249, 249, 1);
+  @media #{$l_mobile} {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+  &.hide {
+    display: none;
+  }
+  .content-container {
+    display: flex;
+    flex-direction: row;
+    gap: 48px;
+    justify-content: center;
+    align-items: center;
+    @media #{$l_mobile} {
+      flex-direction: column;
+      gap: 24px;
+    }
+    .content-section {
+      flex: 1 1 389px;
+      min-width: 300px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      padding-top: 40px;
+      padding-bottom: 40px;
+      @media #{$l_mobile} {
+        order: 1;
+        gap: 8px;
+        padding-top: 0;
+        padding-bottom: 0;
+      }
+      .title {
+        font: var($text-header2);
+        color: $color-black;
+      }
+      .description {
+        font: var($text-body2r);
+        color: $text-dark;
+      }
+      .email-field {
+        margin-top: 16px;
+        @media #{$l_mobile} {
+          margin-top: 40px;
+        }
+        input,
+        textarea {
+          font: var($text-placeholder);
+          box-sizing: content-box !important;
+          padding: 16px 13px;
+          &::placeholder {
+            font: var($text-placeholder);
+          }
+        }
+        :global(.MuiInputBase-root) {
+          &:global(.Mui-error) {
+            :global(.MuiOutlinedInput-notchedOutline) {
+              border-color: #b3261e !important;
+            }
+          }
+        }
+      }
+      .recaptcha-disclaimer {
+        font: var($text-small1);
+        color: $text-dark;
+        // margin-top: 16px;
+        line-height: 26px;
+        @media #{$l_mobile} {
+          order: 1;
+          margin-top: 24px;
+        }
+      }
+      .submit-btn {
+        margin-top: 24px;
+      }
+    }
+    .image-section {
+      flex: 1 1 67%;
+      display: flex;
+      width: 100%;
+    }
+  }
+}

@@ -1,0 +1,199 @@
+$langAr: ':lang(ar)';
+$maxWidth: 1248;
+$space: 24;
+$maxwidthContainer: ($space + $space + $maxWidth) * 1px;
+$min_m_mobile: 'only screen and (min-width:600px)';
+$min_l_mobile: 'only screen and (min-width:768px)';
+$l_mobile: 'only screen and (max-width:768px)';
+$m_mobile: 'only screen and (max-width:600px)';
+$s_mobile: 'only screen and (max-width:500px)';
+$xs_mobile: 'only screen and (max-width:420px)';
+$max_width_1300: 'only screen and (max-width:1300px)';
+$max_width_1024: 'only screen and (max-width:1024px)';
+$max_width_1248: 'only screen and (max-width:1248px)';
+$max_width_900: 'only screen and (max-width:900px)';
+$max_width_820: 'only screen and (max-width:821px)';
+$max_expand_right: 'only screen and (min-width:#{$maxwidthContainer})';
+$max_expand_right_under1248: 'only screen and (max-width:#{$maxwidthContainer})';
+$min_width_1024: 'only screen and (min-width:1024.1px)';
+
+$primary-font: 'New Murabba Cy B15';
+$arabic-font: 'HT Arkan';
+// $box-shadow-1x: 20px 60px 44px rgba(0, 0, 0, 0.1);
+// $box-shadow-2x: 18px 18px 30px rgba(1, 1, 1, 0.1);
+// $box-shadow-3x: -4px 28px 120px rgba(0, 255, 255, 0.2);
+// $box-shadow-4x: 0px 4px 8px rgba(0, 0, 0, 0.45);
+// $backdrop-filter-1x: blur(17px);
+
+// Primary Button
+$color-white: #ffffff;
+$color-gold: #b28b31;
+$color-gold2: #e6d9bd;
+$color-grey: #f9f9f9;
+$color-gradient-linear-1: #d9c59a;
+$color-gold-light: #d9c59a;
+$color-black: #111111;
+$color-black2: #000000;
+$color-black-opaque: #1e1e1e;
+$color-grey-faded: rgba(79, 79, 79, 0.7);
+$color-grey-faded2: #7b7b7b;
+$primary4Color: #7b7b7b;
+// Secondary Button
+$secondary-color: rgb(17, 17, 17);
+$secondary-color-hover: rgba(17, 17, 17, 0.8);
+$layerOpacity: rgba(0, 0, 0, 0.4);
+$color-primary-slate-l: #d9d9d9;
+$color-primary-slate-m: #999;
+$text-dark: #4f4f4f;
+// $color-primary-gold-d: #B28B31;
+$color-secondary-beij-1: #ece2cc;
+$color-secondary-beij-2: #f7f3eb;
+$color-secondary-beij-3: #fbf9f5;
+$color-gradient-radial: radial-gradient(48.96% 51.11% at 50% 50%, #d9c59a 0%, #b28b31 80%);
+$backdrop-popup: rgba(17, 17, 17, 0.8);
+
+$color-gradient-linear-1: linear-gradient(90deg, #d9c59a -1.11%, #b28b31 80.67%);
+$color-secondary-beij-3: #fbf9f5;
+// ---------------------------------------------
+$component-space: --component-space;
+$component-space2x: --component-space2x;
+
+// ---------------------------------------------
+// Paddings
+$default-padding: --default-padding;
+$extra-padding: --extra-padding;
+$xxl-padding: --xxl-padding;
+$padding-0: --padding-0;
+
+$theme-component-space-desk: (
+  $component-space: 64px,
+  $component-space2x: 120px,
+  $default-padding: 64px,
+  $extra-padding: 120px,
+  $xxl-padding: 220px,
+  $padding-0: 0px,
+);
+$theme-component-space-mobile: (
+  $component-space: 32px,
+  $component-space2x: 60px,
+  $default-padding: 40px,
+  $extra-padding: 80px,
+  $xxl-padding: 120px,
+  $padding-0: 0px,
+);
+
+$text-header1: --text-header1;
+$text-header2: --text-header2;
+$text-header3: --text-header3;
+$text-header3s: --text-header3s;
+$text-header4: --text-header4;
+$text-header5: --text-header5; // new
+$text-body1b: --text-body1b;
+$text-body1r: --text-body1r;
+$text-body1ar: --text-body1ar; // new
+$text-placeholder: --text-placeholder;
+$text-body2r: --text-body2r;
+$text-body2rCaps: --text-body2rCaps;
+$text-body2rCapsAr: --text-body2rCapsAr;
+$text-menuButtonsr: --text-menuButtonsr;
+$text-menuButtonsb: --text-menuButtonsb;
+$text-small1: --text-small1;
+$text-small1a: --text-small1a; // new
+$text-small2: --text-small2;
+$desktop-button: --desktop-button;
+
+$fw300: 300;
+$fw400: 400;
+$fw500: 500;
+$fw600: 600;
+$fw700: 700;
+$fw800: 800;
+$fw900: 900;
+
+$theme-map-font-desk: (
+  $text-header1: normal normal $fw800 60px/68px $primary-font,
+  $text-header2: normal normal $fw800 40px/48px $primary-font,
+  $text-header3: normal normal $fw800 30px/42px $primary-font,
+  $text-header3s: normal normal $fw800 30px/42px $primary-font,
+  $text-header4: normal normal $fw400 30px/42px $primary-font,
+  $text-header5: normal normal $fw800 24px/30px $primary-font,
+  $text-body1b: normal normal $fw600 20px/30px $primary-font,
+  $text-body1r: normal normal $fw400 20px/30px $primary-font,
+  $text-body1ar: normal normal $fw400 18px/24px $primary-font,
+  $text-placeholder: normal normal $fw400 16px/22px $primary-font,
+  $text-body2r: normal normal $fw400 16px/26px $primary-font,
+  $text-body2rCaps: normal normal $fw400 16px/26px $primary-font,
+  $text-body2rCapsAr: normal normal $fw400 16px/26px $arabic-font,
+  $text-menuButtonsr: normal normal $fw400 16px/24px $primary-font,
+  $text-menuButtonsb: normal normal $fw600 16px/24px $primary-font,
+  $text-small1: normal normal $fw400 14px/18px $primary-font,
+  $text-small1a: normal normal $fw400 13px/18px $primary-font,
+  $text-small2: normal normal $fw400 12px/18px $primary-font,
+  $desktop-button: normal normal $fw400 18px/24px $primary-font,
+);
+
+$theme-map-font-desk-reversed: (
+  $text-header1: normal normal $fw900 60px/90px $arabic-font,
+  $text-header2: normal normal $fw900 40px/60px $arabic-font,
+  $text-header3: normal normal $fw900 40px/60px $arabic-font,
+  $text-header3s: normal normal $fw900 30px/50px $arabic-font,
+  $text-header4: normal normal $fw400 30px/50px $arabic-font,
+  $text-header5: normal normal $fw900 24px/40px $arabic-font,
+  $text-body1b: normal normal $fw500 20px/32px $arabic-font,
+  $text-body1r: normal normal $fw400 20px/32px $arabic-font,
+  $text-body1ar: normal normal $fw400 18px/24px $arabic-font,
+  $text-placeholder: normal normal $fw400 16px/22px $arabic-font,
+  $text-body2r: normal normal $fw400 18px/30px $arabic-font,
+  $text-body2rCaps: normal normal $fw400 18px/30px $arabic-font,
+  $text-body2rCapsAr: normal normal $fw400 16px/26px $primary-font,
+  $text-menuButtonsr: normal normal $fw400 16px/24px $primary-font,
+  $text-menuButtonsb: normal normal $fw600 16px/24px $primary-font,
+  $text-small1: normal normal $fw400 14px/26px $arabic-font,
+  $text-small1a: normal normal $fw400 13px/18px $arabic-font,
+  $text-small2: normal normal $fw400 12px/22px $arabic-font,
+  $desktop-button: normal normal $fw400 18px/24px $arabic-font,
+);
+
+$theme-map-font-mobile: (
+  $text-header1: normal normal $fw800 40px/40px $primary-font,
+  $text-header2: normal normal $fw800 32px/40px $primary-font,
+  $text-header3: normal normal $fw800 24px/30px $primary-font,
+  $text-header3s: normal normal $fw800 24px/30px $primary-font,
+  $text-header4: normal normal $fw400 24px/30px $primary-font,
+  $text-header5: normal normal $fw800 24px/30px $primary-font,
+  $text-body1b: normal normal $fw600 18px/24px $primary-font,
+  $text-body1r: normal normal $fw400 18px/24px $primary-font,
+  $text-body1ar: normal normal $fw400 18px/24px $primary-font,
+  $text-placeholder: normal normal $fw400 16px/22px $primary-font,
+  $text-body2r: normal normal $fw400 16px/26px $primary-font,
+  $text-body2rCaps: normal normal $fw400 14px/26px $primary-font,
+  $text-body2rCapsAr: normal normal $fw400 16px/26px $arabic-font,
+  $text-menuButtonsr: normal normal $fw400 16px/24px $primary-font,
+  $text-menuButtonsb: normal normal $fw600 16px/24px $primary-font,
+  $text-small1: normal normal $fw400 13px/18px $primary-font,
+  $text-small1a: normal normal $fw400 13px/18px $primary-font,
+  $text-small2: normal normal $fw400 12px/18px $primary-font,
+  $desktop-button: normal normal $fw400 18px/24px $primary-font,
+);
+$theme-map-font-mobile-reversed: (
+  $text-header1: normal normal $fw900 40px/60px $arabic-font,
+  $text-header2: normal normal $fw900 32px/50px $arabic-font,
+  $text-header3: normal normal $fw900 24px/40px $arabic-font,
+  $text-header3s: normal normal $fw900 24px/40px $arabic-font,
+  $text-header4: normal normal $fw400 24px/40px $arabic-font,
+  $text-header5: normal normal $fw900 24px/40px $arabic-font,
+  $text-body1b: normal normal $fw500 18px/30px $arabic-font,
+  $text-body1r: normal normal $fw400 18px/30px $arabic-font,
+  $text-body1ar: normal normal $fw400 18px/30px $arabic-font,
+  $text-placeholder: normal normal $fw400 16px/22px $arabic-font,
+  $text-body2r: normal normal $fw400 16px/28px $arabic-font,
+  $text-body2rCaps: normal normal $fw400 14px/26px $arabic-font,
+  $text-body2rCapsAr: normal normal $fw400 16px/26px $primary-font,
+  $text-menuButtonsr: normal normal $fw400 16px/24px $primary-font,
+  $text-menuButtonsb: normal normal $fw600 16px/24px $primary-font,
+  $text-small1: normal normal $fw400 13px/18px $arabic-font,
+  $text-small1a: normal normal $fw400 13px/18px $arabic-font,
+  $text-small2: normal normal $fw400 12px/18px $arabic-font,
+  $desktop-button: normal normal $fw400 18px/24px $arabic-font,
+);
+

@@ -1,0 +1,66 @@
+@use 'assets/abstracts' as *;
+
+.RichContentFlipped {
+  .image {
+    position: relative;
+    order: 2;
+    @media #{$l_mobile} {
+      width: 100%;
+      order: 1;
+      margin-bottom: 32px;
+    }
+    img {
+      @media #{$l_mobile} {
+        width: 245px;
+        height: 245px;
+        // height: auto !important;
+        // width: 100% !important;
+        // max-width: calc(100% - 135px);
+      }
+    }
+  }
+  .title-desc {
+    order: 1;
+    @media #{$l_mobile} {
+      order: 2;
+    }
+    .title {
+      position: relative;
+      margin-bottom: 16px;
+      font: var($text-header3);
+    }
+  }
+  .image-title-wrap {
+    position: relative;
+    gap: 32px;
+    @media #{$l_mobile} {
+      flex-wrap: wrap;
+      gap: 0;
+    }
+    &.centered {
+      justify-content: center;
+    }
+  }
+  .title-desc {
+    position: relative;
+    max-width: 821px;
+    width: 100%;
+    .description {
+      font: var($text-body2r);
+    }
+  }
+  &.image-left {
+    .image {
+      order: 1;
+      @media #{$l_mobile} {
+        order: 1;
+      }
+    }
+    .title-desc {
+      order: 2;
+      @media #{$l_mobile} {
+        order: 2;
+      }
+    }
+  }
+}

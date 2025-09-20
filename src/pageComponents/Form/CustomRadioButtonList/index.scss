@@ -1,0 +1,13 @@
+@import "src/assets/scss/base/components-dependencies";
+
+.CustomRadioButtonList {
+  .hide {
+    input {
+      position: absolute;
+      top: -1010231px;
+    }
+  }
+  .MuiFormControlLabel-root {
+    margin-bottom: 0px;
+  }
+}
