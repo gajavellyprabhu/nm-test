@@ -1,14 +1,17 @@
 module.exports = {
   apps: [
     {
-      // Local Development
+      // Local Development (uses next dev if node_modules exists, else fallback to standalone server.js)
       name: 'new-murabba-local',
-      script: './node_modules/.bin/next',
-      args: 'start',
+      script: process.env.USE_STANDALONE
+        ? './server.js'
+        : './node_modules/.bin/next',
+      args: process.env.USE_STANDALONE ? '' : 'dev -p 10400',
       env: {
         NODE_ENV: 'development',
         PORT: 10400,
       },
+      watch: process.env.USE_STANDALONE ? false : ['src', 'pages', 'components'],
     },
     {
       // UAT Cluster Configuration
