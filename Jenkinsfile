@@ -22,7 +22,7 @@ pipeline {
         stage('Build & Deploy') {
             steps {
                 sh '''
-                docker build \
+                docker build --no-cache \
                   -t new-murabba:dev \
                   --build-arg NODE_ENV=${NODE_ENV} \
                   --build-arg PORT=${PORT} \
@@ -62,6 +62,7 @@ pipeline {
                     -e NEW_RELIC_DISTRIBUTED_TRACING_ENABLED=true \
                     -e NEW_RELIC_LOG=stdout \
                     -e NEW_RELIC_LOG_LEVEL="${NEW_RELIC_LOG_LEVEL}" \
+                    -e USE_STANDALONE=true \
                     --name new-murabba-dev \
                     new-murabba:dev
                 '''
