@@ -48,7 +48,7 @@ RUN npm run build
 FROM node:18.17.0-alpine AS runner
 
 # Install PM2 globally
-# RUN npm install -g pm2
+RUN npm install -g pm2
 
 WORKDIR /app
 
@@ -60,7 +60,8 @@ RUN adduser -S nextjs -u 1001
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 COPY --from=builder --chown=nextjs:nodejs /app/public ./public
-#COPY --from=builder --chown=nextjs:nodejs /app/pm2.config.js ./
+COPY --from=builder --chown=nextjs:nodejs /app/pm2.config.js ./
+COPY --from=builder --chown=nextjs:nodejs /app/newrelic.js ./
 
 # Environment variables
 ENV NODE_ENV=production
@@ -75,8 +76,8 @@ HEALTHCHECK --interval=30s --timeout=10s --start-period=40s --retries=3 \
     CMD node -e "require('http').get('http://localhost:${PORT}/api/health', (res) => { process.exit(res.statusCode === 200 ? 0 : 1); });"
 
 # Start with PM2
-#CMD ["pm2-runtime", "start", "pm2.config.js", "--env", "${NODE_ENV}"]
+CMD ["pm2-runtime", "start", "pm2.config.js", "--env", "${NODE_ENV}"]
 #CMD ["node", "server.js"] working
 #CMD ["sh", "-c", "NODE_OPTIONS='-r newrelic' node server.js"]
 #CMD ["npm", "run", "next:start"]
-CMD ["sh", "-c", "npm run start"]
+#CMD ["sh", "-c", "npm run start"]
