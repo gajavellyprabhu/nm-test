@@ -8,7 +8,7 @@ WORKDIR /app
 
 # Copy package files
 COPY package*.json ./
-RUN npm install
+RUN npm install && npm install newrelic@^12.0.0
 #RUN npm ci 
 
 # Copy application files
@@ -64,6 +64,7 @@ COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 COPY --from=builder --chown=nextjs:nodejs /app/public ./public
 #COPY --from=builder --chown=nextjs:nodejs /app/pm2.config.js ./
 COPY --from=builder --chown=nextjs:nodejs /app/newrelic.js ./
+COPY --from=builder --chown=nextjs:nodejs /app/node_modules ./node_modules
 
 # Environment variables
 ENV NODE_ENV=production
@@ -79,7 +80,7 @@ HEALTHCHECK --interval=30s --timeout=10s --start-period=40s --retries=3 \
 
 # Start with PM2
 #CMD ["pm2-runtime", "start", "pm2.config.js", "--env", "${NODE_ENV}"]
-CMD ["node", "server.js"]
-#CMD ["sh", "-c", "NODE_OPTIONS='-r newrelic' node server.js"]
+#CMD ["node", "server.js"]
+CMD ["sh", "-c", "NODE_OPTIONS='-r newrelic' node server.js"]
 #CMD ["npm", "run", "next:start"]
 #CMD ["sh", "-c", "npm run start"]
